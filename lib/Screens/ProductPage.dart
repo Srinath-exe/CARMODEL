@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:favorite_button/favorite_button.dart';
 
@@ -86,12 +88,10 @@ class _ProductPageState extends State<ProductPage> {
               show ? Container() : prd_img(),
               Padding(
                 padding:
-                    const EdgeInsets.symmetric(vertical: 5.0, horizontal: 20),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Container(
-                      width: MediaQuery.of(context).size.width * 0.3,
+                    const EdgeInsets.symmetric(vertical: 10.0, horizontal: 20),
+                
+                   child: Container(
+                      width: MediaQuery.of(context).size.width ,
                       child: Column(
                         children: [
                           Text(
@@ -104,20 +104,20 @@ class _ProductPageState extends State<ProductPage> {
                             textScaleFactor: 1,
                           ),
                           Text(
-                            "₹11480000.00",
+                            "₹ 114800.00",
                             style: TextStyle(
-                                fontSize: 18, fontWeight: FontWeight.w500),
+                                fontSize: 20, fontWeight: FontWeight.w500),
                             textScaleFactor: 1,
                           ),
                         ],
                       ),
-                    ),
-                  ],
-                ),
+                 
+                    )
               ),
+              Specifications(),
               Prod_details(),
               Highlights(),
-              Specifications(),
+              
             ]),
           ))),
     );
@@ -219,7 +219,7 @@ class _ProductPageState extends State<ProductPage> {
                 icon: add
                     ? const Icon(
                         Icons.add_shopping_cart_sharp,
-                        color: Colors.green,
+                        color: Colors.orange,
                       )
                     : const Icon(
                         Icons.add_shopping_cart_sharp,
@@ -255,7 +255,7 @@ class Prod_detailsState extends State<Prod_details> {
   Widget build(BuildContext context) {
     return Container(
       child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 20),
+        padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 15),
         child: Column(
           children: [
             Row(
@@ -286,7 +286,7 @@ class Prod_detailsState extends State<Prod_details> {
               height: MediaQuery.of(context).size.height * 0.008,
             ),
             Row(
-              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 GestureDetector(
                   onTap: () {
@@ -307,11 +307,11 @@ class Prod_detailsState extends State<Prod_details> {
                 ),
                 exapnded
                     ? Icon(
-                        Icons.arrow_forward,
+                        Icons.arrow_forward_ios,
                         color: Colors.grey[600],
-                        size: 20,
+                        size: 15,
                       )
-                    : Icon(Icons.arrow_upward,
+                    : Icon(Icons.expand_less,
                         color: Colors.grey[600], size: 20),
               ],
             ),
@@ -330,18 +330,26 @@ class Highlights extends StatefulWidget {
 }
 
 class _HighlightsState extends State<Highlights> {
+  final controller =ScrollController();
   bool exapnded = true;
   @override
   Widget build(BuildContext context) {
+    
     return GestureDetector(
+      
       onTap: () {
+      
+        
         setState(() {
           exapnded = !exapnded;
+          controller.animateTo(controller.position.maxScrollExtent, duration:Duration(milliseconds:1000), curve:Curves.easeIn);
         });
+        
       },
       child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 20),
+        padding: const EdgeInsets.symmetric(vertical: 15.0, horizontal: 20),
         child: Container(
+          
             child: Column(
           children: [
             Row(
@@ -426,58 +434,144 @@ class _SpecificationsState extends State<Specifications> {
                   style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
                   textScaleFactor: 1,
                 ),
-                
               ],
             ),
-               SizedBox(
-              height: MediaQuery.of(context).size.height * 0.03,
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.009,
             ),
             Row(
-              
               children: [
-                specs("Ford","grey[100]","assets/images/sedan.png"),
-                  specs(),
-            specs(),
+                specs("Ford", "BRAND", Colors.orange,
+                    Icons.directions_car_filled_outlined),
+                specs(
+                  "1947-1970",
+                  "PERIOD",
+                  Colors.orange,
+                  Icons.history_outlined,
+                ),
+
+                // specs(),
               ],
             ),
-          
+            Row(
+              children: [
+                specs(
+                  "1966",
+                  "YEAR",
+                  Colors.orange,
+                  Icons.schedule_rounded,
+                ),
+                specs(
+                    "USA", "MODEL ORIGIN", Colors.orange, Icons.flag_outlined),
+
+                // specs(),
+              ],
+            ),
+            Row(
+              children: [
+                specs(
+                  "1:18",
+                  "SCALE",
+                  Colors.orange,
+                  Icons.straighten_outlined,
+                ),
+                specs(
+                  "12.5 X 6 X 5.5",
+                  "BOX DIMENSIONS (INCH)",
+                  Colors.orange,
+                  Icons.view_in_ar_outlined,
+                ),
+
+                // specs(),
+              ],
+            ),
+            Row(
+              children: [
+                specs("Blue", "COLOR", Colors.blue, Icons.color_lens),
+                specs("Solido", "MAKE", Colors.orange, Icons.business_outlined),
+              ],
+            ),
+            Row(
+              children: [
+                specs(
+                  "Racing-F1/GP",
+                  "THEME",
+                  Colors.orange,
+                  Icons.color_lens_outlined,
+                ),
+                specs("Metal", "MATERIAL", Colors.orange,
+                    Icons.build_circle_outlined),
+              ],
+            ),
           ],
         )),
       ),
     );
   }
-Widget specs(String txt,String color,String img){
-  return Container( 
-    child: Row(
-       children:[
-         Padding(
-           padding: const EdgeInsets.all(1.0),
-           child: Container(
-      width:  MediaQuery.of(context).size.width*0.14,
-      height: MediaQuery.of(context).size.height*0.07,
-      decoration: new BoxDecoration(
-         image: DecorationImage(
-          image: AssetImage(
-              img),
-          fit: BoxFit.fill,
-        ),
-        color: Colors.grey[100],
-        shape: BoxShape.circle,
 
-      ),
-             
-           ),
-         ),
-         Container(
-           
-           width:  MediaQuery.of(context).size.width*0.15,
-           child: Text(txt, style: TextStyle(fontSize: 15, fontWeight: FontWeight.w500),
-                    textScaleFactor: 1,),
-         )
-       ]    
-    ),
-  );
-}
+  Widget specs(String txt, String txt2, Color col, IconData img) {
+    return Container(
+      child: Row(children: [
+        Padding(
+          padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 0),
+          child: Container(
+            width: MediaQuery.of(context).size.width * 0.12,
+            height: MediaQuery.of(context).size.height * 0.05,
+            decoration: new BoxDecoration(
+              //  image: DecorationImage(
+              //   image: AssetImage(
+              //       img),
+              //   fit: BoxFit.fill,
+              // ),
+              color: Colors.grey[100],
+              shape: BoxShape.circle,
+            ),
+            child: Center(
+                child: Icon(
+              img,
+              
+              color: col,
+              size: 30,
+            )),
+          ),
+        ),
+        SizedBox(
+          width: MediaQuery.of(context).size.width * 0.02,
+        ),
+        Container(
+          width: MediaQuery.of(context).size.width * 0.30,
+          height: MediaQuery.of(context).size.height * 0.05,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Row(
+                children: [
+                  Text(
+                    txt,
+                    style: TextStyle(fontSize: 17, fontWeight: FontWeight.w400),
+                    textScaleFactor: 1,
+                  ),
+                ],
+              ),
+              Row(
+                children: [
+                  Text(
+                    txt2,
+                    style: TextStyle(
+                        fontSize: 10,
+                        fontWeight: FontWeight.w500,
+                        color: Colors.grey[500]),
+                    textScaleFactor: 1,
+                  ),
+                ],
+              ),
+            ],
+          ),
+        )
+      ]),
+    );
+  }
+
   Widget table() {
     return Container(
       child: Column(
@@ -509,7 +603,7 @@ Widget specs(String txt,String color,String img){
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Container(
-                   width: MediaQuery.of(context).size.width * 0.9 * 0.3,
+                  width: MediaQuery.of(context).size.width * 0.9 * 0.3,
                   child: Text(
                     c1,
                     style: TextStyle(
