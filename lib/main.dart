@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:modelcars/Screens/HomePage/home.dart';
 import 'package:modelcars/Screens/ProductPage.dart';
+import 'package:modelcars/Screens/ProductViewpage/product_detail_view.dart';
 
 void main() {
   runApp(MyApp());
@@ -13,7 +15,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData(
  
-        primarySwatch: Colors.purple,
+        primarySwatch: Colors.green,
       ),
       home:ProductPage()
     );
