@@ -5,14 +5,18 @@ import 'package:favorite_button/favorite_button.dart';
 
 import 'package:flutter/material.dart';
 import 'package:modelcars/Models/tempPrdModel.dart';
+import 'package:modelcars/Screens/HomePage/data.dart';
+import 'package:modelcars/widgets/productCard.dart';
 
 List<Product> products = [
   Product(
       name: "Fiat 131 Panorama - Alitalia",
       img: [
-        "assets/images/image_04.jpg",
+        "assets/images/image_01.jpg",
+        "assets/images/image_02.jpg",
         "assets/images/image_03.jpg",
-        "assets/images/image_01.jpg"
+        "assets/images/image_04.jpg",
+        "assets/images/image_05.jpg",
       ],
       details:
           "Named as 'GT' or Grand Touring car, the Ford made GT 40 were produced in the UK and was based on the British made Lola MK6 model with inputs from John Wyer Automotive Engineering, Shelby and a gearbox supplier called Kar-Kraft Powered by Ford made 289 cubic inch V8 engines, about 100 cars rolled out as Ford GT 40 in Mark I, II and Mark III variants. The reason why it was called 40 was because of the height of her windshield which was 40 inches.On 15th June, 1969 at the Circuit de la Sarthe during Le Mans, a Ford GT40 MK I entered by J. W. Automotive Engineering Ltd. and driven by Belgian Jacky Ickx and British Jack Oliver came first after doing 372 laps maintaining an average speed of 208 km/hr"),
@@ -62,9 +66,9 @@ class _ProductPageState extends State<ProductPage> {
                         Container(
                           width: MediaQuery.of(context).size.width * 0.9,
                           child: Text(
-                            "Benz barbus 700 ",
+                            "FORD GT40 MKI - LE MANS - WINNER",
                             style: TextStyle(
-                                fontSize: 30, fontWeight: FontWeight.w500),
+                                fontSize: 25, fontWeight: FontWeight.w500),
                             textScaleFactor: 1,
                           ),
                         ),
@@ -87,37 +91,101 @@ class _ProductPageState extends State<ProductPage> {
               ),
               show ? Container() : prd_img(),
               Padding(
-                padding:
-                    const EdgeInsets.symmetric(vertical: 10.0, horizontal: 20),
-                
-                   child: Container(
-                      width: MediaQuery.of(context).size.width ,
-                      child: Column(
+                  padding: const EdgeInsets.symmetric(
+                      vertical: 10.0, horizontal: 20),
+                  child: Container(
+                    width: MediaQuery.of(context).size.width,
+                    child: Column(
+                      children: [
+                        Text(
+                          "₹ 21855.00",
+                          style: TextStyle(
+                              fontSize: 17,
+                              fontWeight: FontWeight.w400,
+                              color: Colors.grey,
+                              decoration: TextDecoration.lineThrough),
+                          textScaleFactor: 1,
+                        ),
+                        Text(
+                          "₹ 114800.00",
+                          style: TextStyle(
+                              fontSize: 20, fontWeight: FontWeight.w500),
+                          textScaleFactor: 1,
+                        ),
+                      ],
+                    ),
+                  )),
+              Specifications(),
+              Prod_details(),
+              Highlights(),
+              Container(
+                child: Padding(
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 8.0, horizontal: 20),
+                  child: Column(
+                    children: [
+                      Row(
                         children: [
                           Text(
-                            "₹ 21855.00",
+                            "LATEST",
                             style: TextStyle(
-                                fontSize: 17,
-                                fontWeight: FontWeight.w400,
-                                color: Colors.grey,
-                                decoration: TextDecoration.lineThrough),
-                            textScaleFactor: 1,
-                          ),
-                          Text(
-                            "₹ 114800.00",
-                            style: TextStyle(
-                                fontSize: 20, fontWeight: FontWeight.w500),
+                                fontSize: 18, fontWeight: FontWeight.w500),
                             textScaleFactor: 1,
                           ),
                         ],
                       ),
-                 
-                    )
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          
+                            Column(
+                              children: [
+                                ProductCard(
+                                  imglink:
+                                      "https://www.scalemodelcart.com/usrfile/40002-18_Norev_Mercedes_Maybach_S_650_a.jpg",
+                                  name: "Mercedes Maybach S 650",
+                                  price: 13880.00,
+                                ),
+                                ProductCard(
+                                  imglink:
+                                      "https://www.scalemodelcart.com/usrfile/40002-18_Solido_S1803004_Ford_GT40_a.jpg",
+                                  name: "Ford GT40",
+                                  price: 7880.00,
+                                ),
+                              ],
+                            
+                          ),
+                         
+                             Column(
+                              children: [
+                                SizedBox(height:MediaQuery.of(context).size.height * 0.05),
+                                 ProductCard(
+                              imglink:
+                                  "https://www.scalemodelcart.com/usrfile/40002-18_CMR175_Mazda_787B_LeMans_Gachot_a.jpg",
+                              name: "Mazda 787B LeMans",
+                              price: 9855.00,
+                            ),
+                            ProductCard(
+                              imglink:
+                                  "https://www.scalemodelcart.com/usrfile/40002-18_Shelby_Ford_GT40_MK2_LeMans_a.jpg",
+                              name: "Shelby Ford GT40 MK II LeMans ",
+                              price: 23000.00,
+                            ),
+                              ],
+                            ),
+                         
+                        ],
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                       
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
               ),
-              Specifications(),
-              Prod_details(),
-              Highlights(),
-              
             ]),
           ))),
     );
@@ -261,8 +329,8 @@ class Prod_detailsState extends State<Prod_details> {
             Row(
               children: [
                 Text(
-                  "Product Details",
-                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
+                  "PRODUCT DETAILS",
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
                   textScaleFactor: 1,
                 ),
               ],
@@ -330,34 +398,28 @@ class Highlights extends StatefulWidget {
 }
 
 class _HighlightsState extends State<Highlights> {
-  final controller =ScrollController();
+  final controller = ScrollController();
   bool exapnded = true;
   @override
   Widget build(BuildContext context) {
-    
     return GestureDetector(
-      
       onTap: () {
-      
-        
         setState(() {
           exapnded = !exapnded;
-          controller.animateTo(controller.position.maxScrollExtent, duration:Duration(milliseconds:1000), curve:Curves.easeIn);
+          // controller.animateTo(controller.position.maxScrollExtent, duration:Duration(milliseconds:1000), curve:Curves.easeIn);
         });
-        
       },
       child: Padding(
         padding: const EdgeInsets.symmetric(vertical: 15.0, horizontal: 20),
         child: Container(
-          
             child: Column(
           children: [
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  "Highlights",
-                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
+                  "HIGHLIGHTS",
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
                   textScaleFactor: 1,
                 ),
                 exapnded
@@ -529,9 +591,8 @@ class _SpecificationsState extends State<Specifications> {
             child: Center(
                 child: Icon(
               img,
-              
-              color: col,
-              size: 30,
+              color: Colors.orange[200],
+              size: 25,
             )),
           ),
         ),
