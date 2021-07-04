@@ -242,7 +242,7 @@ class _ProductPageState extends State<ProductPage> {
         bottomNavigationBar: Container(
           height: MediaQuery.of(context).size.height * 0.06,
           decoration: BoxDecoration(
-            color: Colors.amber,
+            color: Colors.orange[600],
             borderRadius: BorderRadius.only(
                 topRight: Radius.circular(30), topLeft: Radius.circular(30)),
             boxShadow: [
@@ -252,7 +252,7 @@ class _ProductPageState extends State<ProductPage> {
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 35.0),
             child: Container(
-              //color: Colors.green,
+              
 
               width: MediaQuery.of(context).size.width * 0.5,
 
@@ -363,7 +363,9 @@ class _ProductPageState extends State<ProductPage> {
                 Icons.arrow_back_ios_new,
                 color: Colors.black,
               ),
-              onPressed: () {}),
+              onPressed: () {
+                Navigator.pop(context);
+              }),
           Row(
             children: [
               FavoriteButton(

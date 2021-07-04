@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:modelcars/Screens/Cartpage/Cart.dart';
 import 'package:modelcars/Screens/HomePage/home.dart';
-import 'package:modelcars/Screens/ProductPage.dart';
+import 'package:modelcars/Screens/ProductViewpage/ProductPage.dart';
 import 'package:modelcars/Screens/ProductViewpage/product_detail_view.dart';
 import 'package:modelcars/Screens/WishList/WishList.dart';
 

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_number_picker/flutter_number_picker.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:modelcars/Screens/ProductPage.dart';
+import 'package:modelcars/Screens/ProductViewpage/ProductPage.dart';
 
 class CartCard extends StatefulWidget {
   String img;
@@ -43,22 +43,7 @@ class _CartCardState extends State<CartCard> {
         child: GestureDetector(
           onTap: () {
             setState(() {
-              // Navigator.push(
-              //     context,
-              //     PageRouteBuilder(
-              //       transitionDuration: Duration(milliseconds: 200),
-              //       pageBuilder: (context, animation, animationTime) {
-              //          // return ProductPage();
-              //       },
-              //       transitionsBuilder:
-              //           (context, animation, animationTime, child) {
-              //         return ScaleTransition(
-              //           scale: animation,
-              //           alignment: Alignment.topCenter,
-              //           child: child,
-              //         );
-              //       },
-              //     ));
+            
             });
           },
           child: Container(

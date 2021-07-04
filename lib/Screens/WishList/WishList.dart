@@ -1,7 +1,10 @@
 import 'dart:ffi';
 
+import 'package:animations/animations.dart';
 import 'package:flutter/material.dart';
+import 'package:modelcars/Screens/Cartpage/Cart.dart';
 import 'package:modelcars/Screens/HomePage/home.dart';
+import 'package:modelcars/Screens/ProductViewpage/ProductPage.dart';
 import 'package:modelcars/widgets/WishList_card.dart';
 
 class WishList extends StatefulWidget {
@@ -25,37 +28,104 @@ class _WishListState extends State<WishList> {
               height: MediaQuery.of(context).size.height * 0.03,
             ),
             // emptywishList(),
-            WishListCard(
-                img:
-                    "https://www.scalemodelcart.com/usrfile/40002-18_Norev_Mercedes_Maybach_S_650_a.jpg",
-                price: 13880.00,
-                name: 'Mercedes Maybach S 650'),
-            WishListCard(
+            OpenContainer(
+              closedColor: Colors.white70,
+              transitionDuration: Duration(seconds:1),
+                closedBuilder: (context, VoidCallback openContainer) =>
+                    WishListCard(
+                        img:
+                            "https://www.scalemodelcart.com/usrfile/40002-18_Norev_Mercedes_Maybach_S_650_a.jpg",
+                        price: 13880.00,
+                        name: 'Mercedes Maybach S 650'),
+                openBuilder: (context, _) => ProductPage()),
+                  OpenContainer(
+                      closedColor: Colors.white70,
+              transitionDuration: Duration(seconds:1),
+                closedBuilder: (context, VoidCallback openContainer) =>
+                     WishListCard(
                 img:
                     "https://www.scalemodelcart.com/usrfile/40002-18_Solido_S1803004_Ford_GT40_a.jpg",
                 price: 7880.00,
                 name: 'Ford GT40'),
-            WishListCard(
+                openBuilder: (context, _) => ProductPage()),
+                 OpenContainer(
+                     closedColor: Colors.white70,
+              transitionDuration: Duration(seconds:1),
+                closedBuilder: (context, VoidCallback openContainer) =>
+                     WishListCard(
                 img:
-                    "https://www.scalemodelcart.com/usrfile/40002-18_Shelby_Ford_GT40_MK2_LeMans_a.jpg",
-                price: 23000.00,
-                name: 'Shelby Ford GT40 MK II LeMans '),
-            WishListCard(
+                    "https://www.scalemodelcart.com/usrfile/40002-18_Solido_S1803004_Ford_GT40_a.jpg",
+                price: 7880.00,
+                name: 'Ford GT40'),
+                openBuilder: (context, _) => ProductPage()),
+                 OpenContainer(
+                     closedColor: Colors.white70,
+              transitionDuration: Duration(seconds:1),
+                closedBuilder: (context, VoidCallback openContainer) =>
+                          WishListCard(
               img:
                   "https://www.scalemodelcart.com/usrfile/40002-18_CMR175_Mazda_787B_LeMans_Gachot_a.jpg",
               name: "Mazda 787B LeMans",
               price: 9855.00,
             ),
+                openBuilder: (context, _) => ProductPage()),
+        
+              OpenContainer(
+                  closedColor: Colors.white70,
+              transitionDuration: Duration(seconds:1),
+                closedBuilder: (context, VoidCallback openContainer) =>
+                         
             WishListCard(
                 img:
                     "https://www.scalemodelcart.com/usrfile/40011-18_AM_Vulcan_a.jpeg",
                 price: 12000.0,
                 name: 'Aston Martin Valcun'),
-            WishListCard(
+                openBuilder: (context, _) => ProductPage()),
+        
+            OpenContainer(
+                closedColor: Colors.white70,
+              transitionDuration: Duration(seconds:1),
+                closedBuilder: (context, VoidCallback openContainer) =>
+                  WishListCard(
                 img:
                     "https://www.scalemodelcart.com/usrfile/40002-18_Norev183497_Mb_AMG_GT_S_a.jpg",
                 price: 8655.0,
                 name: 'Mercedes Benz AMG GT-S'),
+                openBuilder: (context, _) => ProductPage()),
+        
+        //  WishListCard(
+        //         img:
+        //             "https://www.scalemodelcart.com/usrfile/40002-18_Norev_Mercedes_Maybach_S_650_a.jpg",
+        //         price: 13880.00,
+        //         name: 'Mercedes Maybach S 650'),
+        //     WishListCard(
+        //         img:
+        //             "https://www.scalemodelcart.com/usrfile/40002-18_Solido_S1803004_Ford_GT40_a.jpg",
+        //         price: 7880.00,
+        //         name: 'Ford GT40'),
+        //     WishListCard(
+        //         img:
+        //             "https://www.scalemodelcart.com/usrfile/40002-18_Shelby_Ford_GT40_MK2_LeMans_a.jpg",
+        //         price: 23000.00,
+        //         name: 'Shelby Ford GT40 MK II LeMans '),
+        //     WishListCard(
+        //       img:
+        //           "https://www.scalemodelcart.com/usrfile/40002-18_CMR175_Mazda_787B_LeMans_Gachot_a.jpg",
+        //       name: "Mazda 787B LeMans",
+        //       price: 9855.00,
+        //     ),
+        //     WishListCard(
+        //         img:
+        //             "https://www.scalemodelcart.com/usrfile/40011-18_AM_Vulcan_a.jpeg",
+        //         price: 12000.0,
+        //         name: 'Aston Martin Valcun'),
+        //     WishListCard(
+        //         img:
+        //             "https://www.scalemodelcart.com/usrfile/40002-18_Norev183497_Mb_AMG_GT_S_a.jpg",
+        //         price: 8655.0,
+        //         name: 'Mercedes Benz AMG GT-S'),
+         
+          
           ],
         )),
       ),
@@ -93,7 +163,11 @@ class _WishListState extends State<WishList> {
               color: Colors.black,
             ),
             onPressed: () {
-              setState(() {});
+              setState(() {
+                Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => CartPage()),);
+              });
             },
           ),
         ]),

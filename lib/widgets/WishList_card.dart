@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
-import 'package:modelcars/Screens/ProductPage.dart';
+import 'package:modelcars/Screens/ProductViewpage/ProductPage.dart';
 
 class WishListCard extends StatefulWidget {
   String img;
@@ -40,27 +40,6 @@ class _WishListCardState extends State<WishListCard> {
         ),
 
 
-            child: GestureDetector(
-            onTap: () {
-              setState(() {
-                Navigator.push(
-                    context,
-                    PageRouteBuilder(
-                      transitionDuration: Duration(milliseconds: 200),
-                      pageBuilder: (context, animation, animationTime) {
-                        return ProductPage();
-                      },
-                      transitionsBuilder:
-                          (context, animation, animationTime, child) {
-                        return ScaleTransition(
-                          scale: animation,
-                          alignment: Alignment.topCenter,
-                          child: child,
-                        );
-                      },
-                    ));
-              });
-            },
             child: Container(
               height: MediaQuery.of(context).size.height * 0.17,
               width: MediaQuery.of(context).size.width,
@@ -192,7 +171,7 @@ class _WishListCardState extends State<WishListCard> {
               ),
             ),
           
-        ),
+        
       ),
     );
   }

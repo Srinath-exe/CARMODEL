@@ -4,7 +4,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:modelcars/Models/tempPrdModel.dart';
 import 'package:modelcars/Screens/HomePage/data.dart';
-import 'package:modelcars/Screens/ProductPage.dart';
+import 'package:modelcars/Screens/ProductViewpage/ProductPage.dart';
 import 'package:pinch_zoom/pinch_zoom.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 import 'package:visibility_detector/visibility_detector.dart';
