@@ -4,9 +4,12 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:favorite_button/favorite_button.dart';
 
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:modelcars/Models/tempPrdModel.dart';
 import 'package:modelcars/Screens/HomePage/data.dart';
 import 'package:modelcars/widgets/productCard.dart';
+import 'package:modelcars/widgets/productImage.dart';
+import 'package:photo_view/photo_view.dart';
 
 List<Product> products = [
   Product(
@@ -93,27 +96,55 @@ class _ProductPageState extends State<ProductPage> {
               Padding(
                   padding: const EdgeInsets.symmetric(
                       vertical: 10.0, horizontal: 20),
-                  child: Container(
-                    width: MediaQuery.of(context).size.width,
-                    child: Column(
-                      children: [
-                        Text(
-                          "₹ 21855.00",
-                          style: TextStyle(
-                              fontSize: 17,
-                              fontWeight: FontWeight.w400,
-                              color: Colors.grey,
-                              decoration: TextDecoration.lineThrough),
-                          textScaleFactor: 1,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Container(
+                        //color: Colors.green,
+                        width: MediaQuery.of(context).size.width * 0.5,
+                        child: Column(
+                          children: [
+                            Row(
+                              children: [
+                                Text(
+                                  "₹ 21855.00",
+                                  style: TextStyle(
+                                      fontSize: 17,
+                                      fontWeight: FontWeight.w400,
+                                      color: Colors.grey,
+                                      decoration: TextDecoration.lineThrough),
+                                  textScaleFactor: 1,
+                                ),
+                              ],
+                            ),
+                            Row(
+                              children: [
+                                Text(
+                                  "₹ 114800.00",
+                                  style: TextStyle(
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.w500),
+                                  textScaleFactor: 1,
+                                ),
+                              ],
+                            ),
+                          ],
                         ),
-                        Text(
-                          "₹ 114800.00",
-                          style: TextStyle(
-                              fontSize: 20, fontWeight: FontWeight.w500),
-                          textScaleFactor: 1,
-                        ),
-                      ],
-                    ),
+                      ),
+                      Row(
+                        children: [
+                          Text(
+                            "FREE DELIVERY",
+                            style: TextStyle(
+                              fontSize: 14,
+                              fontWeight: FontWeight.w500,
+                              color: Colors.grey[500],
+                            ),
+                            textScaleFactor: 1,
+                          ),
+                        ],
+                      ),
+                    ],
                   )),
               Specifications(),
               Prod_details(),
@@ -134,53 +165,61 @@ class _ProductPageState extends State<ProductPage> {
                           ),
                         ],
                       ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          
-                            Column(
-                              children: [
-                                ProductCard(
-                                  imglink:
-                                      "https://www.scalemodelcart.com/usrfile/40002-18_Norev_Mercedes_Maybach_S_650_a.jpg",
-                                  name: "Mercedes Maybach S 650",
-                                  price: 13880.00,
-                                ),
-                                ProductCard(
-                                  imglink:
-                                      "https://www.scalemodelcart.com/usrfile/40002-18_Solido_S1803004_Ford_GT40_a.jpg",
-                                  name: "Ford GT40",
-                                  price: 7880.00,
-                                ),
-                              ],
-                            
-                          ),
-                         
-                             Column(
-                              children: [
-                                SizedBox(height:MediaQuery.of(context).size.height * 0.05),
-                                 ProductCard(
-                              imglink:
-                                  "https://www.scalemodelcart.com/usrfile/40002-18_CMR175_Mazda_787B_LeMans_Gachot_a.jpg",
-                              name: "Mazda 787B LeMans",
-                              price: 9855.00,
+                      Container(
+                        height: MediaQuery.of(context).size.height * 0.7,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Container(
+                              // height: MediaQuery.of(context).size.height*0.5,
+                              //  color: Colors.red,
+                              child: Column(
+                                children: [
+                                  ProductCard(
+                                    imglink:
+                                        "https://www.scalemodelcart.com/usrfile/40002-18_Norev_Mercedes_Maybach_S_650_a.jpg",
+                                    name: "Mercedes Maybach S 650",
+                                    price: 13880.00,
+                                  ),
+                                  ProductCard(
+                                    imglink:
+                                        "https://www.scalemodelcart.com/usrfile/40002-18_Solido_S1803004_Ford_GT40_a.jpg",
+                                    name: "Ford GT40",
+                                    price: 7880.00,
+                                  ),
+                                ],
+                              ),
                             ),
-                            ProductCard(
-                              imglink:
-                                  "https://www.scalemodelcart.com/usrfile/40002-18_Shelby_Ford_GT40_MK2_LeMans_a.jpg",
-                              name: "Shelby Ford GT40 MK II LeMans ",
-                              price: 23000.00,
+                            Container(
+                              //height: MediaQuery.of(context).size.height*0.7,
+                              // color: Colors.red,
+                              child: Column(
+                                children: [
+                                  SizedBox(
+                                      height:
+                                          MediaQuery.of(context).size.height *
+                                              0.09),
+                                  ProductCard(
+                                    imglink:
+                                        "https://www.scalemodelcart.com/usrfile/40002-18_CMR175_Mazda_787B_LeMans_Gachot_a.jpg",
+                                    name: "Mazda 787B LeMans",
+                                    price: 9855.00,
+                                  ),
+                                  ProductCard(
+                                    imglink:
+                                        "https://www.scalemodelcart.com/usrfile/40002-18_Shelby_Ford_GT40_MK2_LeMans_a.jpg",
+                                    name: "Shelby Ford GT40 MK II LeMans ",
+                                    price: 23000.00,
+                                  ),
+                                ],
+                              ),
                             ),
-                              ],
-                            ),
-                         
-                        ],
+                          ],
+                        ),
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                       
-                        ],
+                        children: [],
                       ),
                     ],
                   ),
@@ -213,13 +252,23 @@ class _ProductPageState extends State<ProductPage> {
               },
             ),
             items: products[0].img.map((e) {
-              return Container(child: img(e));
+              return GestureDetector(
+                  onTap: () {
+                    setState(() {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) =>
+                                  ProductImage(index: _currentIndex)));
+                    });
+                  },
+                  child: Container(child: img(e)));
             }).toList(),
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: products.map((urlOfItem) {
-              int index = products.indexOf(urlOfItem);
+            children: products[0].img.map((urlOfItem) {
+              int index = products[0].img.indexOf(urlOfItem);
               return Container(
                 width: 5.0,
                 height: 5.0,
@@ -271,16 +320,24 @@ class _ProductPageState extends State<ProductPage> {
               FavoriteButton(
                 iconSize: 40,
                 valueChanged: (_isFavorite) {
-                  _isFavorite = true;
-                  _isFavorite == true
-                      ? ScaffoldMessenger.of(context)
-                          .showSnackBar(const SnackBar(
-                          content: Text('Added to Whishlist '),
-                        ))
-                      : ScaffoldMessenger.of(context)
-                          .showSnackBar(const SnackBar(
-                          content: Text('Removed to Whishlist '),
-                        ));
+                  _isFavorite = !_isFavorite;
+                  _isFavorite == false
+                      ? Fluttertoast.showToast(
+                          msg: "Added to Wishlist",
+                          toastLength: Toast.LENGTH_SHORT,
+                          gravity: ToastGravity.BOTTOM,
+                          timeInSecForIosWeb: 1,
+                          backgroundColor: Colors.grey[100],
+                          textColor: Colors.white,
+                          fontSize: 12.0)
+                      : Fluttertoast.showToast(
+                          msg: "Removed from Wishlist",
+                          toastLength: Toast.LENGTH_SHORT,
+                          gravity: ToastGravity.BOTTOM,
+                          timeInSecForIosWeb: 1,
+                          backgroundColor: Colors.grey[100],
+                          textColor: Colors.white,
+                          fontSize: 12.0);
                 },
               ),
               IconButton(
@@ -296,9 +353,24 @@ class _ProductPageState extends State<ProductPage> {
                 onPressed: () {
                   setState(() {
                     add = !add;
-                    ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                      content: Text('Added to Shopping cart'),
-                    ));
+
+                    add == true
+                        ? Fluttertoast.showToast(
+                            msg: "Added to Cart",
+                            toastLength: Toast.LENGTH_SHORT,
+                            gravity: ToastGravity.BOTTOM,
+                            timeInSecForIosWeb: 1,
+                            backgroundColor: Colors.grey[100],
+                            textColor: Colors.white,
+                            fontSize: 12.0)
+                        : Fluttertoast.showToast(
+                            msg: "Removed from Cart",
+                            toastLength: Toast.LENGTH_SHORT,
+                            gravity: ToastGravity.BOTTOM,
+                            timeInSecForIosWeb: 1,
+                            backgroundColor: Colors.grey[100],
+                            textColor: Colors.white,
+                            fontSize: 12.0);
                   });
                 },
               ),

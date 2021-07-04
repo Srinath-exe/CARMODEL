@@ -1,5 +1,6 @@
 import 'package:favorite_button/favorite_button.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 class ProductCard extends StatefulWidget {
   String imglink;
@@ -14,6 +15,7 @@ class ProductCard extends StatefulWidget {
 }
 
 class _ProductCardState extends State<ProductCard> {
+  bool _isFavorite=false;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -38,16 +40,24 @@ class _ProductCardState extends State<ProductCard> {
                     child: FavoriteButton(
                       iconSize: 30,
                       valueChanged: (_isFavorite) {
-                        _isFavorite = true;
-                        _isFavorite == true
-                            ? ScaffoldMessenger.of(context)
-                                .showSnackBar(const SnackBar(
-                                content: Text('Added to Whishlist'),
-                              ))
-                            : ScaffoldMessenger.of(context)
-                                .showSnackBar(const SnackBar(
-                                content: Text('Removed to Whishlist '),
-                              ));
+                        _isFavorite = !_isFavorite;
+                        _isFavorite == false
+                            ?   Fluttertoast.showToast(
+                                        msg: "Added to Wishlist",
+                                        toastLength: Toast.LENGTH_SHORT,
+                                        gravity: ToastGravity.BOTTOM,
+                                        timeInSecForIosWeb: 1,
+                                        backgroundColor: Colors.grey[100],
+                                        textColor: Colors.white,
+                                        fontSize: 12.0)
+                            :   Fluttertoast.showToast(
+                                        msg: "Removed from Wishlist",
+                                        toastLength: Toast.LENGTH_SHORT,
+                                        gravity: ToastGravity.BOTTOM,
+                                        timeInSecForIosWeb: 1,
+                                        backgroundColor: Colors.grey[100],
+                                        textColor: Colors.white,
+                                        fontSize: 12.0);
                       },
                     ),
                   )
