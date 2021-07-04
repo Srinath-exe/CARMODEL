@@ -24,33 +24,34 @@ class _WishListState extends State<WishList> {
             SizedBox(
               height: MediaQuery.of(context).size.height * 0.03,
             ),
-           // emptywishList(),
+            // emptywishList(),
             WishListCard(
                 img:
                     "https://www.scalemodelcart.com/usrfile/40002-18_Norev_Mercedes_Maybach_S_650_a.jpg",
                 price: 13880.00,
                 name: 'Mercedes Maybach S 650'),
-                   WishListCard(
+            WishListCard(
                 img:
                     "https://www.scalemodelcart.com/usrfile/40002-18_Solido_S1803004_Ford_GT40_a.jpg",
                 price: 7880.00,
                 name: 'Ford GT40'),
-                 WishListCard(
+            WishListCard(
                 img:
                     "https://www.scalemodelcart.com/usrfile/40002-18_Shelby_Ford_GT40_MK2_LeMans_a.jpg",
                 price: 23000.00,
                 name: 'Shelby Ford GT40 MK II LeMans '),
-                 WishListCard(
-                img:
-                    "https://www.scalemodelcart.com/usrfile/40002-18_CMR175_Mazda_787B_LeMans_Gachot_a.jpg",
-                 name: "Mazda 787B LeMans",
-                                  price: 9855.00,),
-                 WishListCard(
+            WishListCard(
+              img:
+                  "https://www.scalemodelcart.com/usrfile/40002-18_CMR175_Mazda_787B_LeMans_Gachot_a.jpg",
+              name: "Mazda 787B LeMans",
+              price: 9855.00,
+            ),
+            WishListCard(
                 img:
                     "https://www.scalemodelcart.com/usrfile/40011-18_AM_Vulcan_a.jpeg",
                 price: 12000.0,
                 name: 'Aston Martin Valcun'),
-                 WishListCard(
+            WishListCard(
                 img:
                     "https://www.scalemodelcart.com/usrfile/40002-18_Norev183497_Mb_AMG_GT_S_a.jpg",
                 price: 8655.0,
@@ -75,29 +76,17 @@ class _WishListState extends State<WishList> {
               color: Colors.black,
             ),
             onPressed: () {
-              setState(() {});
+              setState(() {
+                Navigator.pop(context);
+              });
             },
           ),
-          // Container(
-          //   width: MediaQuery.of(context).size.width * 0.12,
-          //   height: MediaQuery.of(context).size.height * 0.05,
-          //   decoration: BoxDecoration(
-          //       border: Border.all(color: Colors.white, width: 1),
-          //       shape: BoxShape.circle),
-          //   child: Center(
-          //       child: Icon(
-          //     Icons.arrow_back_ios_new,
-          //     color: Colors.orange[200],
-          //     size: 25,
-          //   )),
-          // ),
           Text(
             "WISHLIST",
             style: TextStyle(
                 fontSize: 20, fontWeight: FontWeight.w500, color: Colors.black),
             textScaleFactor: 1,
           ),
-
           IconButton(
             icon: Icon(
               Icons.shopping_bag_outlined,

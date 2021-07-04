@@ -37,6 +37,7 @@ dependencies:
   zoom_widget: ^0.2.1
   pinch_zoom: ^0.1.0-nullsafety.0
   fluttertoast: ^8.0.7
+  flutter_number_picker: ^1.0.1
   
 
 

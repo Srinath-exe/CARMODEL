@@ -6,6 +6,7 @@ import 'package:favorite_button/favorite_button.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:modelcars/Models/tempPrdModel.dart';
+import 'package:modelcars/Screens/Cartpage/Cart.dart';
 import 'package:modelcars/Screens/HomePage/data.dart';
 import 'package:modelcars/widgets/productCard.dart';
 import 'package:modelcars/widgets/productImage.dart';
@@ -55,178 +56,226 @@ class _ProductPageState extends State<ProductPage> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-          backgroundColor: Colors.white,
-          body: SingleChildScrollView(
-              child: Container(
-            child: Column(children: [
-              appbar(),
-              Container(
-                width: MediaQuery.of(context).size.width * 0.9,
+        backgroundColor: Colors.white,
+        body: SingleChildScrollView(
+            child: Container(
+          child: Column(children: [
+            appbar(),
+            Container(
+              width: MediaQuery.of(context).size.width * 0.9,
+              child: Column(
+                children: [
+                  Row(
+                    children: [
+                      Container(
+                        width: MediaQuery.of(context).size.width * 0.9,
+                        child: Text(
+                          "FORD GT40 MKI - LE MANS - WINNER",
+                          style: TextStyle(
+                              fontSize: 25, fontWeight: FontWeight.w500),
+                          textScaleFactor: 1,
+                        ),
+                      ),
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      Text(
+                        "Scale - 1:18",
+                        style: TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.w500,
+                            color: Colors.grey[700]),
+                        textScaleFactor: 1,
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+            show ? Container() : prd_img(),
+            // Padding(
+            //     padding:
+            //         const EdgeInsets.symmetric(vertical: 10.0, horizontal: 20),
+            //     child: Row(
+            //       mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            //       // children: [
+            //       //   Container(
+            //       //     //color: Colors.green,
+            //       //     width: MediaQuery.of(context).size.width * 0.5,
+            //       //     child: Column(
+            //       // // children: [
+            //       // //         Row(
+            //       // //           children: [
+            //       // //             Text(
+            //       // //               "₹ 21855.00",
+            //       // //               style: TextStyle(
+            //       // //                   fontSize: 17,
+            //       // //                   fontWeight: FontWeight.w400,
+            //       // //                   color: Colors.grey,
+            //       // //                   decoration: TextDecoration.lineThrough),
+            //       // //               textScaleFactor: 1,
+            //       // //             ),
+            //       // //           ],
+            //       // //         ),
+            //       // //         Row(
+            //       // //           children: [
+            //       // //             Text(
+            //       // //               "₹ 114800.00",
+            //       // //               style: TextStyle(
+            //       // //                   fontSize: 20, fontWeight: FontWeight.w500),
+            //       // //               textScaleFactor: 1,
+            //       // //             ),
+            //       // //           ],
+            //       // //         ),
+            //       // //       ],
+            //       // //     ),
+            //       //   ),
+            //       //   Row(
+            //       //     children: [
+            //       //       Text(
+            //       //         "FREE DELIVERY",
+            //       //         style: TextStyle(
+            //       //           fontSize: 14,
+            //       //           fontWeight: FontWeight.w500,
+            //       //           color: Colors.grey[500],
+            //       //         ),
+            //       //         textScaleFactor: 1,
+            //       //       ),
+            //       //     ],
+            //       //   ),
+            //       // ],
+               
+            //     )),
+           
+            Specifications(),
+            Prod_details(),
+            Highlights(),
+            Container(
+              child: Padding(
+                padding:
+                    const EdgeInsets.symmetric(vertical: 8.0, horizontal: 20),
                 child: Column(
                   children: [
                     Row(
                       children: [
-                        Container(
-                          width: MediaQuery.of(context).size.width * 0.9,
-                          child: Text(
-                            "FORD GT40 MKI - LE MANS - WINNER",
-                            style: TextStyle(
-                                fontSize: 25, fontWeight: FontWeight.w500),
-                            textScaleFactor: 1,
-                          ),
-                        ),
-                      ],
-                    ),
-                    Row(
-                      children: [
                         Text(
-                          "Scale - 1:18",
+                          "LATEST",
                           style: TextStyle(
-                              fontSize: 18,
-                              fontWeight: FontWeight.w400,
-                              color: Colors.grey),
+                              fontSize: 18, fontWeight: FontWeight.w500),
                           textScaleFactor: 1,
                         ),
                       ],
                     ),
+                    Container(
+                      height: MediaQuery.of(context).size.height * 0.7,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Container(
+                            // height: MediaQuery.of(context).size.height*0.5,
+                            //  color: Colors.red,
+                            child: Column(
+                              children: [
+                                ProductCard(
+                                  imglink:
+                                      "https://www.scalemodelcart.com/usrfile/40002-18_Norev_Mercedes_Maybach_S_650_a.jpg",
+                                  name: "Mercedes Maybach S 650",
+                                  price: 13880.00,
+                                ),
+                                ProductCard(
+                                  imglink:
+                                      "https://www.scalemodelcart.com/usrfile/40002-18_Solido_S1803004_Ford_GT40_a.jpg",
+                                  name: "Ford GT40",
+                                  price: 7880.00,
+                                ),
+                              ],
+                            ),
+                          ),
+                          Container(
+                            //height: MediaQuery.of(context).size.height*0.7,
+                            // color: Colors.red,
+                            child: Column(
+                              children: [
+                                SizedBox(
+                                    height: MediaQuery.of(context).size.height *
+                                        0.09),
+                                ProductCard(
+                                  imglink:
+                                      "https://www.scalemodelcart.com/usrfile/40002-18_CMR175_Mazda_787B_LeMans_Gachot_a.jpg",
+                                  name: "Mazda 787B LeMans",
+                                  price: 9855.00,
+                                ),
+                                ProductCard(
+                                  imglink:
+                                      "https://www.scalemodelcart.com/usrfile/40002-18_Shelby_Ford_GT40_MK2_LeMans_a.jpg",
+                                  name: "Shelby Ford GT40 MK II LeMans ",
+                                  price: 23000.00,
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [],
+                    ),
                   ],
                 ),
               ),
-              show ? Container() : prd_img(),
-              Padding(
-                  padding: const EdgeInsets.symmetric(
-                      vertical: 10.0, horizontal: 20),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            ),
+          ]),
+        )),
+        floatingActionButton: FloatingActionButton.extended(
+          elevation: 0,
+          onPressed: () {
+            Navigator.push(
+                context, MaterialPageRoute(builder: (context) => CartPage()));
+          },
+          icon: Icon(Icons.shopping_cart_outlined),
+          backgroundColor: Colors.black,
+          foregroundColor: Colors.white,
+          label: Text("Add to Cart"),
+        ),
+        bottomNavigationBar: Container(
+          height: MediaQuery.of(context).size.height * 0.06,
+          decoration: BoxDecoration(
+            color: Colors.amber,
+            borderRadius: BorderRadius.only(
+                topRight: Radius.circular(30), topLeft: Radius.circular(30)),
+            boxShadow: [
+              BoxShadow(color: Colors.black38, spreadRadius: 0, blurRadius: 10),
+            ],
+          ),
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 35.0),
+            child: Container(
+              //color: Colors.green,
+
+              width: MediaQuery.of(context).size.width * 0.5,
+
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Row(
                     children: [
-                      Container(
-                        //color: Colors.green,
-                        width: MediaQuery.of(context).size.width * 0.5,
-                        child: Column(
-                          children: [
-                            Row(
-                              children: [
-                                Text(
-                                  "₹ 21855.00",
-                                  style: TextStyle(
-                                      fontSize: 17,
-                                      fontWeight: FontWeight.w400,
-                                      color: Colors.grey,
-                                      decoration: TextDecoration.lineThrough),
-                                  textScaleFactor: 1,
-                                ),
-                              ],
-                            ),
-                            Row(
-                              children: [
-                                Text(
-                                  "₹ 114800.00",
-                                  style: TextStyle(
-                                      fontSize: 20,
-                                      fontWeight: FontWeight.w500),
-                                  textScaleFactor: 1,
-                                ),
-                              ],
-                            ),
-                          ],
-                        ),
-                      ),
-                      Row(
-                        children: [
-                          Text(
-                            "FREE DELIVERY",
-                            style: TextStyle(
-                              fontSize: 14,
-                              fontWeight: FontWeight.w500,
-                              color: Colors.grey[500],
-                            ),
-                            textScaleFactor: 1,
-                          ),
-                        ],
-                      ),
-                    ],
-                  )),
-              Specifications(),
-              Prod_details(),
-              Highlights(),
-              Container(
-                child: Padding(
-                  padding:
-                      const EdgeInsets.symmetric(vertical: 8.0, horizontal: 20),
-                  child: Column(
-                    children: [
-                      Row(
-                        children: [
-                          Text(
-                            "LATEST",
-                            style: TextStyle(
-                                fontSize: 18, fontWeight: FontWeight.w500),
-                            textScaleFactor: 1,
-                          ),
-                        ],
-                      ),
-                      Container(
-                        height: MediaQuery.of(context).size.height * 0.7,
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Container(
-                              // height: MediaQuery.of(context).size.height*0.5,
-                              //  color: Colors.red,
-                              child: Column(
-                                children: [
-                                  ProductCard(
-                                    imglink:
-                                        "https://www.scalemodelcart.com/usrfile/40002-18_Norev_Mercedes_Maybach_S_650_a.jpg",
-                                    name: "Mercedes Maybach S 650",
-                                    price: 13880.00,
-                                  ),
-                                  ProductCard(
-                                    imglink:
-                                        "https://www.scalemodelcart.com/usrfile/40002-18_Solido_S1803004_Ford_GT40_a.jpg",
-                                    name: "Ford GT40",
-                                    price: 7880.00,
-                                  ),
-                                ],
-                              ),
-                            ),
-                            Container(
-                              //height: MediaQuery.of(context).size.height*0.7,
-                              // color: Colors.red,
-                              child: Column(
-                                children: [
-                                  SizedBox(
-                                      height:
-                                          MediaQuery.of(context).size.height *
-                                              0.09),
-                                  ProductCard(
-                                    imglink:
-                                        "https://www.scalemodelcart.com/usrfile/40002-18_CMR175_Mazda_787B_LeMans_Gachot_a.jpg",
-                                    name: "Mazda 787B LeMans",
-                                    price: 9855.00,
-                                  ),
-                                  ProductCard(
-                                    imglink:
-                                        "https://www.scalemodelcart.com/usrfile/40002-18_Shelby_Ford_GT40_MK2_LeMans_a.jpg",
-                                    name: "Shelby Ford GT40 MK II LeMans ",
-                                    price: 23000.00,
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [],
+                      Text(
+                        "₹ 11480.00",
+                        style: TextStyle(
+                            fontSize: 24, fontWeight: FontWeight.w500),
+                        textScaleFactor: 1,
                       ),
                     ],
                   ),
-                ),
+                ],
               ),
-            ]),
-          ))),
+            ),
+          ),
+        ),
+        floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
+      ),
     );
   }
 
@@ -657,7 +706,7 @@ class _SpecificationsState extends State<Specifications> {
               //       img),
               //   fit: BoxFit.fill,
               // ),
-              color: Colors.grey[100],
+              color: Colors.grey[200],
               shape: BoxShape.circle,
             ),
             child: Center(
