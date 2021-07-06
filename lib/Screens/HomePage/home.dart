@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:modelcars/widgets/cardScroll_widget.dart';
 
-
 import 'data.dart';
 import 'dart:math';
 
@@ -96,7 +95,7 @@ class _HomeState extends State<Home> {
                       SizedBox(
                         width: 15.0,
                       ),
-                      Text("25+ Stories",
+                      Text("25+ new",
                           style: TextStyle(color: Colors.blueAccent))
                     ],
                   ),
@@ -120,7 +119,9 @@ class _HomeState extends State<Home> {
                           size: 12.0,
                           color: Colors.white,
                         ),
-                        onPressed: () {},
+                        onPressed: () {
+                          
+                        },
                       )
                     ],
                   ),

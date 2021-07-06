@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:modelcars/Screens/Cartpage/Cart.dart';
+import 'package:modelcars/Screens/ForgotPassword/forgotPassword.dart';
 import 'package:modelcars/Screens/HomePage/home.dart';
 import 'package:modelcars/Screens/ProductViewpage/ProductPage.dart';
 import 'package:modelcars/Screens/ProductViewpage/product_detail_view.dart';
@@ -19,7 +20,7 @@ class MyApp extends StatelessWidget {
  
         primarySwatch: Colors.grey,
       ),
-      home:CartPage()
+      home:ForgotPassword()
     );
   }
   

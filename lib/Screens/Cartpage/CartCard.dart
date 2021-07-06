@@ -140,47 +140,55 @@ class _CartCardState extends State<CartCard> {
                             ),
                          
                           
-                               Container(
-                                decoration: BoxDecoration(
-                                    color: Colors.grey[100],
-                                    borderRadius: BorderRadius.circular(10)),
-                                height:
-                                    MediaQuery.of(context).size.height * 0.048,
-                                width: MediaQuery.of(context).size.width * 0.39,
-                                child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.end,
-                                  children: [
-                                    Text(
-                                      'Quantity',
-                                      style: TextStyle(
-                                          fontSize: 15,
-                                          fontWeight: FontWeight.w400,
-                                          color: Colors.black),
-                                      textScaleFactor: 1,
-                                    ),
-                                    Container(
-                                      child: CustomNumberPicker(
-                                        customAddButton: Icon(
-                                          Icons.add,
-                                          size: 17,
+                               Row(
+                                 children: [
+                                   SizedBox(
+ width: MediaQuery.of(context).size.width*0.02,
+                                   ),
+                                   Container(
+                                    decoration: BoxDecoration(
+                                        color: Colors.grey[100],
+                                        borderRadius: BorderRadius.circular(10)),
+                                    height:
+                                        MediaQuery.of(context).size.height * 0.048,
+                                    width: MediaQuery.of(context).size.width * 0.21,
+                                    child: Row(
+                                      mainAxisAlignment: MainAxisAlignment.center,
+                                      children: [
+                                        // Text(
+                                        //   '',
+                                        //   style: TextStyle(
+                                        //       fontSize: 15,
+                                        //       fontWeight: FontWeight.w400,
+                                        //       color: Colors.black),
+                                        //   textScaleFactor: 1,
+                                        // ),
+                                       
+                                        Container(
+                                          child: CustomNumberPicker(
+                                            customAddButton: Icon(
+                                              Icons.add,
+                                              size: 17,
+                                            ),
+                                            customMinusButton: Icon(
+                                              Icons.remove,
+                                              size: 17,
+                                            ),
+                                            initialValue: 1,
+                                            maxValue: 5,
+                                            minValue: 1,
+                                            step: 1,
+                                            onValue: (value) {
+                                              print(value.toString());
+                                            },
+                                          ),
                                         ),
-                                        customMinusButton: Icon(
-                                          Icons.remove,
-                                          size: 17,
-                                        ),
-                                        initialValue: 1,
-                                        maxValue: 5,
-                                        minValue: 1,
-                                        step: 1,
-                                        onValue: (value) {
-                                          print(value.toString());
-                                        },
-                                      ),
-                                    ),
-                                  ],
-                                
+                                      ],
+                                    
                               ),
                             ),
+                                 ],
+                               ),
                           ],
                         ),
                       ),
