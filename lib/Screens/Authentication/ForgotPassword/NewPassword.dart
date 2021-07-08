@@ -1,3 +1,4 @@
+import 'package:clay_containers/clay_containers.dart';
 import 'package:flutter/material.dart';
 import 'package:modelcars/Screens/HomePage/home.dart';
 
@@ -41,7 +42,7 @@ class _NewPasswordState extends State<NewPassword> {
           //   ),
           // ),
 
-          backgroundColor: Colors.white,
+          backgroundColor: Colors.grey[200],
           body: SingleChildScrollView(
             controller: _controller,
             child: Container(
@@ -54,10 +55,10 @@ class _NewPasswordState extends State<NewPassword> {
                       height: MediaQuery.of(context).size.height * 0.01,
                     ),
                     Container(
-                        color: Colors.white,
+                        color: Colors.transparent,
                         height: MediaQuery.of(context).size.height * 0.3,
                         width: MediaQuery.of(context).size.width,
-                        child: Image.asset('assets/images/Newpassword.png')),
+                        child: Image.asset('assets/images/newpass.png')),
                     SizedBox(height: MediaQuery.of(context).size.height * 0.05),
                     Row(
                       children: [
@@ -77,17 +78,26 @@ class _NewPasswordState extends State<NewPassword> {
                           TextStyle(fontSize: 14, fontWeight: FontWeight.w400),
                     ),
                     SizedBox(height: MediaQuery.of(context).size.height * 0.02),
-                    Container(
-                      height: MediaQuery.of(context).size.height * 0.30,
+                    ClayContainer(
+                      // emboss: true,
+                      depth: 25,
+                       spread: 5,
+                       parentColor: Colors.grey[200],
+                       surfaceColor: Colors.white,
+                      curveType: CurveType.none,
+                      customBorderRadius: BorderRadius.circular(20),
+                      color: Colors.white,
+                      height: MediaQuery.of(context).size.height * 0.3,
                       width: MediaQuery.of(context).size.width * 0.95,
-                      decoration: BoxDecoration(
-                          color: Colors.grey[100],
-                          borderRadius: BorderRadius.circular(20)),
+                      // decoration: BoxDecoration(
+                      //     color: Colors.grey[100],
+                      //     borderRadius: BorderRadius.circular(20)),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Padding(
-                            padding: const EdgeInsets.symmetric(horizontal:15.0,vertical: 4),
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 15.0, vertical: 4),
                             child: Row(
                               children: [
                                 Text(
@@ -101,7 +111,8 @@ class _NewPasswordState extends State<NewPassword> {
                             ),
                           ),
                           Padding(
-                            padding: const EdgeInsets.symmetric(horizontal:15.0),
+                            padding:
+                                const EdgeInsets.symmetric(horizontal: 15.0),
                             child: TextFormField(
                               onTap: () {
                                 setState(() {
@@ -124,7 +135,7 @@ class _NewPasswordState extends State<NewPassword> {
                               },
                               decoration: InputDecoration(
                                 prefixIcon: Icon(Icons.lock_outline,
-                                    color: Colors.teal),
+                                    color: Color(0xFF679EC0)),
                                 border: OutlineInputBorder(
                                     borderRadius: const BorderRadius.all(
                                   const Radius.circular(15.0),
@@ -137,6 +148,7 @@ class _NewPasswordState extends State<NewPassword> {
                                         ? Icons.visibility
                                         : Icons.visibility_off,
                                     color: Theme.of(context).primaryColorDark,
+                                    size: 20,
                                   ),
                                   onPressed: () {
                                     // Update the state i.e. toogle the state of passwordVisible variable
@@ -152,7 +164,8 @@ class _NewPasswordState extends State<NewPassword> {
                             height: MediaQuery.of(context).size.height * 0.02,
                           ),
                           Padding(
-                            padding: const EdgeInsets.symmetric(horizontal:15.0,vertical: 4),
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 15.0, vertical: 4),
                             child: Row(
                               children: [
                                 Text(
@@ -166,12 +179,13 @@ class _NewPasswordState extends State<NewPassword> {
                             ),
                           ),
                           Padding(
-                            padding: const EdgeInsets.symmetric(horizontal:15.0),
+                            padding:
+                                const EdgeInsets.symmetric(horizontal: 15.0),
                             child: TextFormField(
                               obscureText: _passwordVisible1,
                               decoration: InputDecoration(
                                 prefixIcon: Icon(Icons.lock_outline,
-                                    color: Colors.teal),
+                                    color: Color(0xFF679EC0)),
                                 border: OutlineInputBorder(
                                     borderRadius: const BorderRadius.all(
                                   const Radius.circular(15.0),
@@ -184,6 +198,7 @@ class _NewPasswordState extends State<NewPassword> {
                                         ? Icons.visibility
                                         : Icons.visibility_off,
                                     color: Theme.of(context).primaryColorDark,
+                                    size: 20,
                                   ),
                                   onPressed: () {
                                     // Update the state i.e. toogle the state of passwordVisible variable
@@ -205,7 +220,8 @@ class _NewPasswordState extends State<NewPassword> {
                             ),
                           ),
                           Padding(
-                            padding: const EdgeInsets.symmetric(horizontal:18.0,vertical: 8),
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 18.0, vertical: 8),
                             child: Row(
                               children: [
                                 Text(
@@ -226,43 +242,50 @@ class _NewPasswordState extends State<NewPassword> {
                     ),
                     Padding(
                       padding: const EdgeInsets.all(8.0),
-                      child: Container(
-                        width: MediaQuery.of(context).size.width * 0.4,
-                        height: MediaQuery.of(context).size.height * 0.05,
-                        child: ElevatedButton(
-                            style: ButtonStyle(
-                              shape: MaterialStateProperty.all<
-                                      RoundedRectangleBorder>(
-                                  RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(12.0),
-                                      side: BorderSide(
-                                          color: Colors.transparent))),
-                              backgroundColor:
-                                  MaterialStateProperty.resolveWith<Color>(
-                                (Set<MaterialState> states) {
-                                  if (states.contains(MaterialState.pressed))
-                                    return Colors.green;
-                                  return Colors.teal;
-                                },
+                      child: Material(
+                        elevation: 10,
+                       borderRadius: BorderRadius.circular(12),
+                                              child: Container(
+                          width: MediaQuery.of(context).size.width * 0.4,
+                          height: MediaQuery.of(context).size.height * 0.05,
+                          child: ElevatedButton(
+                              style: ButtonStyle(
+                                shape: MaterialStateProperty.all<
+                                        RoundedRectangleBorder>(
+                                    RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(12.0),
+                                        side: BorderSide(
+                                            color: Colors.transparent))),
+                                backgroundColor:
+                                    MaterialStateProperty.resolveWith<Color>(
+                                  (Set<MaterialState> states) {
+                                    if (states.contains(MaterialState.pressed))
+                                      return Color(0xff2F729B);
+                                    return Color(0xFF679EC0);
+                                  },
+                                ),
                               ),
-                            ),
-                            child: Text(
-                              'Reset Password',
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 16,
-                                fontWeight: FontWeight.w500,
+                              child: Text(
+                                'Reset Password',
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w500,
+                                ),
                               ),
-                            ),
-                            onPressed: () {
-                              setState(() {
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => Home()));
-                              });
-                            }),
+                              onPressed: () {
+                                setState(() {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => Home()));
+                                });
+                              }),
+                        ),
                       ),
+                    ),
+                    SizedBox(
+                      height: MediaQuery.of(context).size.height * 0.04,
                     ),
                   ]),
                 ),

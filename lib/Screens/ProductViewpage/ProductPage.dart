@@ -145,9 +145,9 @@ class _ProductPageState extends State<ProductPage> {
             //       //     ],
             //       //   ),
             //       // ],
-               
+
             //     )),
-           
+
             Specifications(),
             Prod_details(),
             Highlights(),
@@ -252,10 +252,7 @@ class _ProductPageState extends State<ProductPage> {
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 35.0),
             child: Container(
-              
-
               width: MediaQuery.of(context).size.width * 0.5,
-
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -607,9 +604,10 @@ class _SpecificationsState extends State<Specifications> {
         });
       },
       child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 20),
+        padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 10),
         child: Container(
             child: Column(
+              
           children: [
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -634,39 +632,27 @@ class _SpecificationsState extends State<Specifications> {
                   Colors.orange,
                   Icons.history_outlined,
                 ),
-
-                // specs(),
-              ],
-            ),
-            Row(
-              children: [
                 specs(
                   "1966",
                   "YEAR",
                   Colors.orange,
                   Icons.schedule_rounded,
                 ),
-                specs(
-                    "USA", "MODEL ORIGIN", Colors.orange, Icons.flag_outlined),
-
                 // specs(),
               ],
             ),
             Row(
               children: [
                 specs(
+                    "USA", "MODEL ORIGIN", Colors.orange, Icons.flag_outlined),
+                specs(
                   "1:18",
                   "SCALE",
                   Colors.orange,
                   Icons.straighten_outlined,
                 ),
-                specs(
-                  "12.5 X 6 X 5.5",
-                  "BOX DIMENSIONS (INCH)",
-                  Colors.orange,
-                  Icons.view_in_ar_outlined,
-                ),
-
+                specs("Metal", "MATERIAL", Colors.orange,
+                    Icons.build_circle_outlined),
                 // specs(),
               ],
             ),
@@ -674,18 +660,29 @@ class _SpecificationsState extends State<Specifications> {
               children: [
                 specs("Blue", "COLOR", Colors.blue, Icons.color_lens),
                 specs("Solido", "MAKE", Colors.orange, Icons.business_outlined),
-              ],
-            ),
-            Row(
-              children: [
                 specs(
                   "Racing-F1/GP",
                   "THEME",
                   Colors.orange,
                   Icons.color_lens_outlined,
                 ),
-                specs("Metal", "MATERIAL", Colors.orange,
-                    Icons.build_circle_outlined),
+                // specs(),
+              ],
+            ),
+            // Row(
+            //   children: [
+
+            //   ],
+            // ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                specs(
+                  "12.5 X 6 X 5.5",
+                  "BOX DIMENSIONS (INCH)",
+                  Colors.orange,
+                  Icons.view_in_ar_outlined,
+                ),
               ],
             ),
           ],
@@ -695,64 +692,52 @@ class _SpecificationsState extends State<Specifications> {
   }
 
   Widget specs(String txt, String txt2, Color col, IconData img) {
-    return Container(
-      child: Row(children: [
-        Padding(
-          padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 0),
-          child: Container(
-            width: MediaQuery.of(context).size.width * 0.12,
-            height: MediaQuery.of(context).size.height * 0.05,
-            decoration: new BoxDecoration(
-              //  image: DecorationImage(
-              //   image: AssetImage(
-              //       img),
-              //   fit: BoxFit.fill,
-              // ),
-              color: Colors.grey[200],
-              shape: BoxShape.circle,
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 6.0, horizontal: 0),
+      child: Container(
+        color: Colors.transparent,
+        width: MediaQuery.of(context).size.width * 0.30,
+        child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 0.0, horizontal: 0),
+            child: CircleAvatar(
+              radius: 25,
+              child: Center(
+                  child: Icon(
+                img,
+                color: Color(0xFF679EC0),
+                size: 30,
+              )),
             ),
-            child: Center(
-                child: Icon(
-              img,
-              color: Colors.orange[200],
-              size: 25,
-            )),
           ),
-        ),
-        SizedBox(
-          width: MediaQuery.of(context).size.width * 0.02,
-        ),
-        Container(
-          width: MediaQuery.of(context).size.width * 0.30,
-          height: MediaQuery.of(context).size.height * 0.05,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Row(
-                children: [
-                  Text(
-                    txt,
-                    style: TextStyle(fontSize: 17, fontWeight: FontWeight.w400),
-                    textScaleFactor: 1,
-                  ),
-                ],
-              ),
-              Row(
-                children: [
-                  Text(
-                    txt2,
-                    style: TextStyle(
-                        fontSize: 10,
-                        fontWeight: FontWeight.w500,
-                        color: Colors.grey[500]),
-                    textScaleFactor: 1,
-                  ),
-                ],
-              ),
-            ],
-          ),
-        )
-      ]),
+
+          // SizedBox(
+          //   width: MediaQuery.of(context).size.width * 0.02,
+          // ),
+          Container(
+            width: MediaQuery.of(context).size.width * 0.30,
+            // height: MediaQuery.of(context).size.height * 0.05,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  txt,
+                  style: TextStyle(fontSize: 17, fontWeight: FontWeight.w400),
+                  textScaleFactor: 1,
+                ),
+                Text(
+                  txt2,
+                  style: TextStyle(
+                      fontSize: 10,
+                      fontWeight: FontWeight.w500,
+                      color: Colors.grey[500]),
+                  textScaleFactor: 1,
+                ),
+              ],
+            ),
+          )
+        ]),
+      ),
     );
   }
 

@@ -1,4 +1,3 @@
-
 import 'dart:math';
 
 import 'package:flutter/cupertino.dart';
@@ -55,7 +54,7 @@ class _CardScrollWidgetState extends State<CardScrollWidget> {
         var horizontalInset = primaryCardLeft / 2;
 
         List<Widget> cardList = [];
-        List<Color> colors = [Colors.black, Colors.blue, Colors.pinkAccent];
+        List<Color> colors = [Colors.black, Colors.blue, Colors.pinkAccent,Colors.pinkAccent];
 
         for (var i = 0; i < widget.products.length; i++) {
           var delta = i - currentPage;
@@ -77,7 +76,7 @@ class _CardScrollWidgetState extends State<CardScrollWidget> {
               child: Container(
                 color: Colors.white,
                 child: Container(
-                  decoration: BoxDecoration(color: Colors.white10, boxShadow: [
+                  decoration: BoxDecoration(color: Colors.white, boxShadow: [
                     BoxShadow(
                         color: Colors.black12,
                         offset: Offset(3.0, 6.0),
@@ -98,7 +97,7 @@ class _CardScrollWidgetState extends State<CardScrollWidget> {
                                 Rect.fromLTRB(0, 0, rect.width, rect.height));
                           },
                           blendMode: BlendMode.dstATop,
-                          child: Image.asset(widget.products[i].img[i],
+                          child: Image.asset('${widget.products[i].img}',
                               fit: BoxFit.fitWidth),
                         ),
                         Align(
@@ -129,8 +128,8 @@ class _CardScrollWidgetState extends State<CardScrollWidget> {
                                       color: Colors.blueAccent,
                                       borderRadius:
                                           BorderRadius.circular(20.0)),
-                                  child: Text(
-                                    "15,500",
+                                  child: Text("23445",
+                                    //"${widget.products[i].}",
                                     style: TextStyle(
                                       color: Colors.white,
                                       fontWeight: FontWeight.bold,

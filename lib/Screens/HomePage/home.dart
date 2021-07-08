@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:modelcars/widgets/cardScroll_widget.dart';
 
+
 import 'data.dart';
 import 'dart:math';
 
@@ -115,7 +116,7 @@ class _HomeState extends State<Home> {
                               fontWeight: FontWeight.bold)),
                       IconButton(
                         icon: Icon(
-                          Icons.safety_divider,
+                          Icons.sanitizer,
                           size: 12.0,
                           color: Colors.white,
                         ),

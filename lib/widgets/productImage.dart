@@ -168,11 +168,12 @@ class _ProductImageState extends State<ProductImage> {
       child: Container(
           height: MediaQuery.of(context).size.height*0,
           width: MediaQuery.of(context).size.width,
-          child: PinchZoom(
-            zoomedBackgroundColor: Colors.white,
-            maxScale: 2.5,
-            resetDuration: Duration(milliseconds:100),
-            image: Image.asset(img, fit: BoxFit.fill))),
+          child: InteractiveViewer(
+           
+            maxScale: 3 ,
+            minScale: 0.8,
+           
+            child: Image.asset(img, fit: BoxFit.fill))),
     );
   }
 }

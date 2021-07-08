@@ -1,5 +1,7 @@
+import 'package:clay_containers/clay_containers.dart';
 import 'package:flutter/material.dart';
-import 'package:modelcars/Screens/ForgotPassword/NewPassword.dart';
+import 'package:modelcars/Screens/Authentication/ForgotPassword/NewPassword.dart';
+
 import 'package:modelcars/Screens/HomePage/home.dart';
 
 class ForgotPassword extends StatefulWidget {
@@ -25,13 +27,14 @@ class ForgotPasswordState extends State<ForgotPassword> {
         body: SingleChildScrollView(
           controller: _controller,
           child: Container(
+            height: MediaQuery.of(context).size.height,
               width: MediaQuery.of(context).size.width,
               child: Form(
                 key: _formKey,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    SizedBox(height: MediaQuery.of(context).size.height * 0.01),
+                    SizedBox(height: MediaQuery.of(context).size.height * 0.04),
                     Container(
                         color: Colors.white,
                         // height: MediaQuery.of(context).size.height * 0.30,
@@ -80,12 +83,15 @@ class ForgotPasswordState extends State<ForgotPassword> {
                             ),
                           ),
 
-                          Container(
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(10),
-                                color: Colors.white,
-                              ),
-                              width: MediaQuery.of(context).size.width,
+                          ClayContainer(
+                              parentColor: Colors.blue[100],
+                              borderRadius: 20,
+                              depth: 20,
+                              surfaceColor: Colors.white,
+                              spread: 5,
+                              curveType: CurveType.none,
+                              color: Colors.white,
+                              width: MediaQuery.of(context).size.width * 0.9,
                               //height: MediaQuery.of(context).size.height ,
                               child: Column(children: [
                                 Container(
@@ -157,25 +163,26 @@ class ForgotPasswordState extends State<ForgotPassword> {
                                                         .height *
                                                     0.05,
                                                 child: OutlinedButton(
-                                                  child: Text(
-                                                    'Continue',
-                                                    style:
-                                                        TextStyle(fontWeight: FontWeight.w600, fontSize: 15),
-                                                  ),
-                                                  style:
-                                                      OutlinedButton.styleFrom(
-                                                    primary: Colors.white,
-                                                    
-                                                    backgroundColor:
-                                                        Colors.grey[700],
-                                                    shape: const RoundedRectangleBorder(
-                                                      
-                                                        borderRadius:
-                                                            BorderRadius.all(
-                                                                Radius.circular(
-                                                                    10))),
-                                                  ),
-                                                 onPressed: () {
+                                                    child: Text(
+                                                      'Continue',
+                                                      style: TextStyle(
+                                                          fontWeight:
+                                                              FontWeight.w600,
+                                                          fontSize: 16),
+                                                    ),
+                                                    style: OutlinedButton
+                                                        .styleFrom(
+                                                      primary: Colors.white,
+                                                      backgroundColor:
+                                                          Color(0xFFF5793CE),
+                                                      shape: const RoundedRectangleBorder(
+                                                          borderRadius:
+                                                              BorderRadius.all(
+                                                                  Radius
+                                                                      .circular(
+                                                                          10))),
+                                                    ),
+                                                    onPressed: () {
                                                       setState(() {
                                                         Navigator.push(
                                                             context,
@@ -184,8 +191,7 @@ class ForgotPasswordState extends State<ForgotPassword> {
                                                                     (context) =>
                                                                         NewPassword()));
                                                       });
-                                                    }
-                                                )
+                                                    })
                                                 //  OutlineButton(
                                                 //     highlightedBorderColor:
                                                 //         Colors.black,
@@ -215,6 +221,7 @@ class ForgotPasswordState extends State<ForgotPassword> {
                                                 ),
                                           ),
                                         ]))
+                           
                               ]))
                         ])
                   ],
