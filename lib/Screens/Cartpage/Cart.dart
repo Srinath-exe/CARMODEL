@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:modelcars/Screens/Cartpage/CartCard.dart';
+import 'package:modelcars/Screens/Cartpage/Payment/Payment.dart';
+import 'package:modelcars/Screens/Cartpage/Payment/finalmain.dart';
 import 'package:modelcars/Screens/HomePage/home.dart';
 import 'package:modelcars/Screens/WishList/WishList.dart';
 
@@ -69,8 +71,9 @@ class _CartPageState extends State<CartPage> {
           child: FloatingActionButton.extended(
             elevation: 0,
             onPressed: () {
-              Navigator.push(
-                  context, MaterialPageRoute(builder: (context) => CartPage()));
+            
+             Navigator.push(
+                  context, MaterialPageRoute(builder: (context) => PaymentMain()));
             },
             icon: Icon(Icons.shopping_cart_outlined),
             backgroundColor: Colors.black,
@@ -323,7 +326,7 @@ class _CartPageState extends State<CartPage> {
                   onPressed: () {
                     setState(() {
                       Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => Home()));
+                          MaterialPageRoute(builder: (context) => PaymentMain()));
                     });
                   }),
             ],

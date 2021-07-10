@@ -701,7 +701,7 @@ class _SpecificationsState extends State<Specifications> {
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 0.0, horizontal: 0),
             child: CircleAvatar(
-              radius: 25,
+              //radius: 20,
               child: Center(
                   child: Icon(
                 img,

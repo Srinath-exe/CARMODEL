@@ -192,6 +192,7 @@ class ForgotPasswordState extends State<ForgotPassword> {
                                                                         NewPassword()));
                                                       });
                                                     })
+                                                
                                                 //  OutlineButton(
                                                 //     highlightedBorderColor:
                                                 //         Colors.black,

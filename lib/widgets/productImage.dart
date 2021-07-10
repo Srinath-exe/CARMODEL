@@ -67,28 +67,28 @@ class _ProductImageState extends State<ProductImage> {
           children: [
             Column(
               children: [
-                SizedBox(height:MediaQuery.of(context).size.height*0.05),
+                SizedBox(height: MediaQuery.of(context).size.height * 0.05),
                 Container(
-                  height: MediaQuery.of(context).size.height*0.1,
-                  child:     Row(
+                  height: MediaQuery.of(context).size.height * 0.1,
+                  child: Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       Center(
-                        child:  IconButton(
-                              onPressed: () {
-                    
-                    
-                               setState(() {
-                                  Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                          builder: (context) => ProductPage()));
-                                });
-                              },
-                              icon: Icon(Icons.close_outlined),
-                              iconSize: 50,
-                            ),
-                        
+                        child: IconButton(
+                          onPressed: () {
+                            setState(() {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => ProductPage()));
+                            });
+                          },
+                          icon: Icon(
+                            Icons.close_outlined,
+                            color: Colors.grey,
+                          ),
+                          iconSize: 50,
+                        ),
                       ),
                     ],
                   ),
@@ -149,8 +149,6 @@ class _ProductImageState extends State<ProductImage> {
                 );
               }).toList(),
             ),
-        
-            
           ],
         ));
   }
@@ -166,14 +164,15 @@ class _ProductImageState extends State<ProductImage> {
       },
       blendMode: BlendMode.dstATop,
       child: Container(
-          height: MediaQuery.of(context).size.height*0,
+          height: MediaQuery.of(context).size.height ,
           width: MediaQuery.of(context).size.width,
           child: InteractiveViewer(
-           
-            maxScale: 3 ,
-            minScale: 0.8,
-           
-            child: Image.asset(img, fit: BoxFit.fill))),
+              maxScale: 10,
+              minScale: 0.8,
+              child: Container(
+                 height: MediaQuery.of(context).size.height,
+          width: MediaQuery.of(context).size.width,
+                child: Image.asset(img, fit: BoxFit.fill)))),
     );
   }
 }
