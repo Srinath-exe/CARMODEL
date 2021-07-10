@@ -165,6 +165,27 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
               ),
             ),
+            GestureDetector(
+              onTap: () {
+                setState(() {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => ForgotPassword()));
+                });
+              },
+              child: Container(
+                padding: const EdgeInsets.only(right: 40.0, top: 10),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    Text('Forgot Password?',
+                        style: TextStyle(
+                            color: Colors.grey, fontWeight: FontWeight.w600)),
+                  ],
+                ),
+              ),
+            ),
             Container(
               width: width * 0.7,
               child: Row(
@@ -177,7 +198,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           shape: MaterialStateProperty.all<
                                   RoundedRectangleBorder>(
                               RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(18.0),
+                                  borderRadius: BorderRadius.circular(12.0),
                                   side: BorderSide(color: Color(0xff7b4775)))),
                           backgroundColor:
                               MaterialStateProperty.resolveWith<Color>(

@@ -18,9 +18,9 @@ class _NewPasswordState extends State<NewPassword> {
 
   @override
   void initState() {
-    _passwordVisible = false;
+    _passwordVisible = true;
     _controller = ScrollController(initialScrollOffset: 15);
-    _passwordVisible1 = false;
+    _passwordVisible1 = true;
   }
 
   Widget build(BuildContext context) {
@@ -65,7 +65,7 @@ class _NewPasswordState extends State<NewPassword> {
                         Text(
                           'Create new password',
                           style: TextStyle(
-                              fontSize: 30, fontWeight: FontWeight.w600),
+                              fontSize: 20, fontWeight: FontWeight.w600),
                         ),
                       ],
                     ),
@@ -81,9 +81,9 @@ class _NewPasswordState extends State<NewPassword> {
                     ClayContainer(
                       // emboss: true,
                       depth: 25,
-                       spread: 5,
-                       parentColor: Colors.grey[200],
-                       surfaceColor: Colors.white,
+                      spread: 5,
+                      parentColor: Colors.grey[200],
+                      surfaceColor: Colors.white,
                       curveType: CurveType.none,
                       customBorderRadius: BorderRadius.circular(20),
                       color: Colors.white,
@@ -103,7 +103,7 @@ class _NewPasswordState extends State<NewPassword> {
                                 Text(
                                   'Password',
                                   style: TextStyle(
-                                      fontSize: 14,
+                                      fontSize: 12,
                                       fontWeight: FontWeight.w500,
                                       color: Colors.black),
                                 ),
@@ -113,49 +113,73 @@ class _NewPasswordState extends State<NewPassword> {
                           Padding(
                             padding:
                                 const EdgeInsets.symmetric(horizontal: 15.0),
-                            child: TextFormField(
-                              onTap: () {
-                                setState(() {
-                                  _controller.animateTo(
-                                    _controller.position.maxScrollExtent,
-                                    duration: Duration(seconds: 1),
-                                    curve: Curves.fastOutSlowIn,
-                                  );
-                                });
-                              },
-                              obscureText: _passwordVisible,
-                              onChanged: (value) {
-                                password = value;
-                              },
-                              validator: (value) {
-                                if (value == null || value.isEmpty) {
-                                  return 'Please enter Password';
-                                }
-                                return null;
-                              },
-                              decoration: InputDecoration(
-                                prefixIcon: Icon(Icons.lock_outline,
-                                    color: Color(0xFF679EC0)),
-                                border: OutlineInputBorder(
-                                    borderRadius: const BorderRadius.all(
-                                  const Radius.circular(15.0),
-                                )),
-                                hintText: 'New Password',
-                                suffixIcon: IconButton(
-                                  icon: Icon(
-                                    // Based on passwordVisible state choose the icon
-                                    _passwordVisible
-                                        ? Icons.visibility
-                                        : Icons.visibility_off,
-                                    color: Theme.of(context).primaryColorDark,
-                                    size: 20,
-                                  ),
-                                  onPressed: () {
-                                    // Update the state i.e. toogle the state of passwordVisible variable
-                                    setState(() {
-                                      _passwordVisible = !_passwordVisible;
-                                    });
+                            child: Material(
+                              
+                              elevation: 2,
+                              shadowColor: Colors.grey[200],
+                              color: Colors.white,
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(10)),
+                              child: Container(
+                                width: MediaQuery.of(context).size.width * 0.8,
+                                alignment: Alignment.center,
+                                margin: EdgeInsets.symmetric(horizontal: 10),
+                                child: TextFormField(
+                                 obscureText: _passwordVisible,
+                                  textAlign: TextAlign.left,
+                                  enabled: true,
+                                  validator: (value) {
+                                    if (value == null || value.isEmpty) {
+                                      return 'Please enter this Field';
+                                    }
+                                    return null;
                                   },
+                                  style: TextStyle(
+                                    fontSize: 16,
+                                  ),
+                                  decoration: InputDecoration(
+                                    border: InputBorder.none,
+                                    contentPadding: EdgeInsets.symmetric(
+                                        horizontal: 10, vertical: 10),
+                                    labelText: "New Password",
+                                    alignLabelWithHint: false,
+                                    prefixIconConstraints: BoxConstraints(
+                                        minWidth: 23, maxHeight: 20),
+                                    prefixIcon: Container(
+                                      color: Colors.white,
+                                      child: Padding(
+                                        padding:
+                                            const EdgeInsets.only(right: 15),
+                                        child: Icon(
+                                          Icons.password,
+                                          color: Colors.grey,
+                                        ),
+                                      ),
+                                    ),
+                                    suffixIcon: IconButton(
+                                      icon: Icon(
+                                        // Based on passwordVisible state choose the icon
+                                        _passwordVisible
+                                            ? Icons.visibility
+                                            : Icons.visibility_off,
+                                        color:
+                                            Colors.grey,
+                                        size: 20,
+                                      ),
+                                      onPressed: () {
+                                        // Update the state i.e. toogle the state of passwordVisible variable
+                                        setState(() {
+                                          _passwordVisible=
+                                              !_passwordVisible;
+                                        });
+                                      },
+                                    ),
+                                    // hintText: "Password",
+                                    hintStyle: TextStyle(
+                                        color: Colors.grey, fontSize: 16),
+                                    labelStyle: TextStyle(
+                                        fontSize: 16, color: Colors.grey),
+                                  ),
                                 ),
                               ),
                             ),
@@ -171,7 +195,7 @@ class _NewPasswordState extends State<NewPassword> {
                                 Text(
                                   'Confirm password',
                                   style: TextStyle(
-                                      fontSize: 14,
+                                      fontSize: 12,
                                       fontWeight: FontWeight.w500,
                                       color: Colors.black),
                                 ),
@@ -181,44 +205,78 @@ class _NewPasswordState extends State<NewPassword> {
                           Padding(
                             padding:
                                 const EdgeInsets.symmetric(horizontal: 15.0),
-                            child: TextFormField(
-                              obscureText: _passwordVisible1,
-                              decoration: InputDecoration(
-                                prefixIcon: Icon(Icons.lock_outline,
-                                    color: Color(0xFF679EC0)),
-                                border: OutlineInputBorder(
-                                    borderRadius: const BorderRadius.all(
-                                  const Radius.circular(15.0),
-                                )),
-                                hintText: 'Confirm Password',
-                                suffixIcon: IconButton(
-                                  icon: Icon(
-                                    // Based on passwordVisible state choose the icon
-                                    _passwordVisible1
-                                        ? Icons.visibility
-                                        : Icons.visibility_off,
-                                    color: Theme.of(context).primaryColorDark,
-                                    size: 20,
-                                  ),
-                                  onPressed: () {
-                                    // Update the state i.e. toogle the state of passwordVisible variable
-                                    setState(() {
-                                      _passwordVisible1 = !_passwordVisible1;
-                                    });
+                            child:  Material(
+                              
+                              elevation: 2,
+                              shadowColor: Colors.grey[200],
+                              color: Colors.white,
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(10)),
+                              child: Container(
+                                width: MediaQuery.of(context).size.width * 0.8,
+                                alignment: Alignment.center,
+                                margin: EdgeInsets.symmetric(horizontal: 10),
+                                child: TextFormField(
+                                  
+                                  textAlign: TextAlign.left,
+                                  enabled: true,
+                                  validator: (value) {
+                                    if (value == null || value.isEmpty) {
+                                      return 'Please enter this Field';
+                                    }
+                                    return null;
                                   },
+                                  style: TextStyle(
+                                    fontSize: 16,
+                                  ),
+                                    obscureText: _passwordVisible1,
+                                  decoration: InputDecoration(
+                                    border: InputBorder.none,
+                                    contentPadding: EdgeInsets.symmetric(
+                                        horizontal: 10, vertical: 10),
+                                    labelText: "Confirm New Password",
+                                    alignLabelWithHint: false,
+                                    prefixIconConstraints: BoxConstraints(
+                                        minWidth: 23, maxHeight: 20),
+                                    prefixIcon: Container(
+                                      color: Colors.white,
+                                      child: Padding(
+                                        padding:
+                                            const EdgeInsets.only(right: 15),
+                                        child: Icon(
+                                          Icons.password,
+                                          color: Colors.grey,
+                                        ),
+                                      ),
+                                    ),
+                                    suffixIcon: IconButton(
+                                      icon: Icon(
+                                        // Based on passwordVisible state choose the icon
+                                        _passwordVisible
+                                            ? Icons.visibility
+                                            : Icons.visibility_off,
+                                        color:
+                                            Colors.grey,
+                                        size: 20,
+                                      ),
+                                      onPressed: () {
+                                        // Update the state i.e. toogle the state of passwordVisible variable
+                                        setState(() {
+                                          _passwordVisible1=
+                                              !_passwordVisible1;
+                                        });
+                                      },
+                                    ),
+                                    // hintText: "Password",
+                                    hintStyle: TextStyle(
+                                        color: Colors.grey, fontSize: 16),
+                                    labelStyle: TextStyle(
+                                        fontSize: 16, color: Colors.grey),
+                                  ),
                                 ),
                               ),
-                              validator: (value) {
-                                if (value != password) {
-                                  return 'Password does not Match';
-                                }
-                                return null;
-                              },
-                              onChanged: (value) {
-                                passwordConfirm = value;
-                              },
                             ),
-                          ),
+                           ),
                           Padding(
                             padding: const EdgeInsets.symmetric(
                                 horizontal: 18.0, vertical: 8),
@@ -227,7 +285,7 @@ class _NewPasswordState extends State<NewPassword> {
                                 Text(
                                   'Both Passwords must Match',
                                   style: TextStyle(
-                                      fontSize: 14,
+                                      fontSize: 11,
                                       fontWeight: FontWeight.w400,
                                       color: Colors.black),
                                 ),
@@ -244,8 +302,8 @@ class _NewPasswordState extends State<NewPassword> {
                       padding: const EdgeInsets.all(8.0),
                       child: Material(
                         elevation: 10,
-                       borderRadius: BorderRadius.circular(12),
-                                              child: Container(
+                        borderRadius: BorderRadius.circular(12),
+                        child: Container(
                           width: MediaQuery.of(context).size.width * 0.4,
                           height: MediaQuery.of(context).size.height * 0.05,
                           child: ElevatedButton(
@@ -253,7 +311,8 @@ class _NewPasswordState extends State<NewPassword> {
                                 shape: MaterialStateProperty.all<
                                         RoundedRectangleBorder>(
                                     RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.circular(12.0),
+                                        borderRadius:
+                                            BorderRadius.circular(12.0),
                                         side: BorderSide(
                                             color: Colors.transparent))),
                                 backgroundColor:

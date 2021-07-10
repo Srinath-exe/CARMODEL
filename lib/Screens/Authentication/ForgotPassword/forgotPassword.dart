@@ -27,7 +27,7 @@ class ForgotPasswordState extends State<ForgotPassword> {
         body: SingleChildScrollView(
           controller: _controller,
           child: Container(
-            height: MediaQuery.of(context).size.height,
+              height: MediaQuery.of(context).size.height,
               width: MediaQuery.of(context).size.width,
               child: Form(
                 key: _formKey,
@@ -61,7 +61,7 @@ class ForgotPasswordState extends State<ForgotPassword> {
                                     children: [
                                       Text("Reset password",
                                           style: TextStyle(
-                                              fontSize: 35,
+                                              fontSize: 26,
                                               fontWeight: FontWeight.w500)),
                                     ],
                                   ),
@@ -73,7 +73,7 @@ class ForgotPasswordState extends State<ForgotPassword> {
                                     children: [
                                       Text("Forgot your password?",
                                           style: TextStyle(
-                                              fontSize: 16,
+                                              fontSize: 12,
                                               color: Colors.grey[600],
                                               fontWeight: FontWeight.w500)),
                                     ],
@@ -84,7 +84,8 @@ class ForgotPasswordState extends State<ForgotPassword> {
                           ),
 
                           ClayContainer(
-                              parentColor: Colors.blue[100],
+                            
+                              parentColor: Colors.grey[100],
                               borderRadius: 20,
                               depth: 20,
                               surfaceColor: Colors.white,
@@ -108,42 +109,65 @@ class ForgotPasswordState extends State<ForgotPassword> {
                                                       .height *
                                                   0.02),
                                           Text(
-                                              "Enter your registered phone number",
+                                              "Enter your registered Email",
                                               style: TextStyle(
-                                                  fontSize: 15,
+                                                  fontSize: 12,
                                                   color: Colors.grey,
                                                   fontWeight: FontWeight.w600)),
                                           Padding(
                                             padding: const EdgeInsets.all(8.0),
-                                            child: TextFormField(
-                                              keyboardType:
-                                                  TextInputType.number,
-                                              onChanged: (value) {
-                                                setState(() {
-                                                  phoneno = value;
-                                                });
-                                              },
-                                              decoration: InputDecoration(
-                                                  prefixIcon: Icon(
-                                                      Icons
-                                                          .phone_android_outlined,
-                                                      color: Colors.black),
-                                                  border: OutlineInputBorder(
-                                                      borderRadius:
-                                                          const BorderRadius
-                                                              .all(
-                                                    const Radius.circular(12.0),
-                                                  )),
-                                                  hintText: 'Phone Number'),
-                                              onTap: () {
-                                                _controller.animateTo(
-                                                  _controller
-                                                      .position.maxScrollExtent,
-                                                  duration:
-                                                      Duration(seconds: 1),
-                                                  curve: Curves.fastOutSlowIn,
-                                                );
-                                              },
+                                            child: Material(
+                                              elevation: 1,
+                                              color: Colors.white,
+                                              shape: RoundedRectangleBorder(
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          10)),
+                                              child: Container(
+                                                width: MediaQuery.of(context)
+                                                        .size
+                                                        .width *
+                                                    0.6,
+                                                alignment: Alignment.center,
+                                                margin: EdgeInsets.symmetric(
+                                                    horizontal: 40),
+                                                child: TextFormField(
+                                                  textAlign: TextAlign.left,
+                                                  enabled: true,
+                                                  style: TextStyle(
+                                                    fontSize: 16,
+                                                  ),
+                                                  onTap: () {},
+                                                  decoration: InputDecoration(
+                                                    border: InputBorder.none,
+                                                    contentPadding:
+                                                        EdgeInsets.symmetric(
+                                                            horizontal: 10,
+                                                            vertical: 10),
+                                                    labelText: "Email",
+                                                    prefixIconConstraints:
+                                                        BoxConstraints(
+                                                            minWidth: 23,
+                                                            maxHeight: 20),
+                                                    prefixIcon: Padding(
+                                                      padding:
+                                                          const EdgeInsets.only(
+                                                              right: 20),
+                                                      child: Icon(
+                                                        Icons.mail_outline,
+                                                        color: Colors.grey,
+                                                      ),
+                                                    ),
+                                                    // hintText: "Password",
+                                                    hintStyle: TextStyle(
+                                                        color: Colors.grey,
+                                                        fontSize: 16),
+                                                    labelStyle: TextStyle(
+                                                        fontSize: 16,
+                                                        color: Colors.grey),
+                                                  ),
+                                                ),
+                                              ),
                                             ),
                                           ),
                                           SizedBox(
@@ -192,7 +216,7 @@ class ForgotPasswordState extends State<ForgotPassword> {
                                                                         NewPassword()));
                                                       });
                                                     })
-                                                
+
                                                 //  OutlineButton(
                                                 //     highlightedBorderColor:
                                                 //         Colors.black,
@@ -222,7 +246,6 @@ class ForgotPasswordState extends State<ForgotPassword> {
                                                 ),
                                           ),
                                         ]))
-                           
                               ]))
                         ])
                   ],

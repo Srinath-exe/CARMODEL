@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:modelcars/Screens/Authentication/authscreen.dart';
 import 'package:modelcars/Screens/Authentication/login.dart';
 import 'package:modelcars/Screens/Cartpage/Cart.dart';
+import 'package:modelcars/Screens/Cartpage/Payment/finalmain.dart';
 
 import 'package:modelcars/Screens/HomePage/home.dart';
 import 'package:modelcars/Screens/ProductViewpage/ProductPage.dart';
@@ -22,6 +23,6 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.grey,
         ),
-        home: ProductPage());
+        home: AuthScreen());
   }
 }

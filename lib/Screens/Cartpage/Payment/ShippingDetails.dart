@@ -56,7 +56,7 @@ class _ShippingDetailsState extends State<ShippingDetails> {
                               ],
                             ),
                           ),
-                          form('Name', Icons.perm_identity_outlined, 0.85),
+                          form('Name', Icons.person,0.85),
                           SizedBox(
                             height: height.height * 0.02,
                           ),
