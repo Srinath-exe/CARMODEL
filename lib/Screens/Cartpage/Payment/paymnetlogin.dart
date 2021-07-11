@@ -6,7 +6,8 @@ import 'package:modelcars/Screens/Cartpage/Payment/guestLogin.dart';
 import 'package:modelcars/Screens/Cartpage/Payment/ordersummary.dart';
 
 class PaymentLogin extends StatefulWidget {
-  const PaymentLogin({Key? key}) : super(key: key);
+  Function onLogin;
+  PaymentLogin({Key? key,required this.onLogin}) : super(key: key);
 
   @override
   _PaymentLoginState createState() => _PaymentLoginState();
@@ -241,6 +242,7 @@ class _PaymentLoginState extends State<PaymentLogin> {
                           ),
                         ),
                         onPressed: () {
+                          widget.onLogin();
                           setState(() {});
                           // Navigator.push(
                           //     context,
@@ -325,6 +327,7 @@ class _PaymentLoginState extends State<PaymentLogin> {
                           ),
                         ),
                         onPressed: () {
+                          
                           setState(() {
                             index = 1;
                           });
@@ -464,14 +467,8 @@ class _PaymentLoginState extends State<PaymentLogin> {
                           ),
                         ),
                         onPressed: () {
-                          setState(() {
-                            Navigator.push(
-                                                            context,
-                                                            MaterialPageRoute(
-                                                                builder:
-                                                                    (context) =>
-                                                                        OrderSummary()));
-                          });
+                             widget.onLogin();
+                         
                         },
                         child: Container(
                           width: width * 0.4,

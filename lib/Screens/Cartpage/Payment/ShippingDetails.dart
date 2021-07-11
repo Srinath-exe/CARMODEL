@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 class ShippingDetails extends StatefulWidget {
-  const ShippingDetails({Key? key}) : super(key: key);
+   Function onDetails;
+ ShippingDetails({Key? key,required this.onDetails}) : super(key: key);
 
   @override
   _ShippingDetailsState createState() => _ShippingDetailsState();
@@ -12,6 +13,22 @@ class _ShippingDetailsState extends State<ShippingDetails> {
   Widget build(BuildContext context) {
     Size height = MediaQuery.of(context).size;
     return Scaffold(
+          floatingActionButton: FloatingActionButton.extended(
+          elevation: 0,
+          onPressed: () {
+              widget.onDetails();
+          },
+          
+        
+          backgroundColor: Colors.black,
+          foregroundColor: Colors.white,
+          label: Row(
+            children: [
+              Text("Next"),
+               Icon(Icons.arrow_forward_ios,size: 15,),
+            ],
+          ),
+        ),
       body: SingleChildScrollView(
         child: Container(
           width: MediaQuery.of(context).size.width,
