@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:modelcars/Models/tempPrdModel.dart';
+import 'package:modelcars/Screens/ProductViewpage/ProductPage.dart';
 
 
 class CardScrollWidget extends StatefulWidget {
@@ -71,77 +72,88 @@ class _CardScrollWidgetState extends State<CardScrollWidget> {
             bottom: padding + verticalInset * max(-delta, 0.0),
             start: start,
             textDirection: TextDirection.rtl,
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(14.0),
-              child: Container(
-                color: Colors.white,
+            child: GestureDetector(
+              onTap: (){
+                setState(() {
+                     Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => ProductPage()));
+                });
+              },
+                          child: ClipRRect(
+                borderRadius: BorderRadius.circular(14.0),
                 child: Container(
-                  decoration: BoxDecoration(color: Colors.white, boxShadow: [
-                    BoxShadow(
-                        color: Colors.black12,
-                        offset: Offset(3.0, 6.0),
-                        blurRadius: 10.0)
-                  ]),
-                  child: AspectRatio(
-                    aspectRatio: cardAspectRatio,
-                    child: Column(
-                      // fit: StackFit.expand,
-                      children: <Widget>[
-                        ShaderMask(
-                          shaderCallback: (rect) {
-                            return LinearGradient(
-                              begin: Alignment(0.0, 0.6),
-                              end: Alignment.bottomCenter,
-                              colors: [Colors.white, Colors.transparent],
-                            ).createShader(
-                                Rect.fromLTRB(0, 0, rect.width, rect.height));
-                          },
-                          blendMode: BlendMode.dstATop,
-                          child: Image.asset('${widget.products[i].img}',
-                              fit: BoxFit.fitWidth),
-                        ),
-                        Align(
-                          alignment: Alignment.bottomLeft,
-                          child: Column(
-                            mainAxisSize: MainAxisSize.min,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: <Widget>[
-                              Padding(
-                                padding: EdgeInsets.symmetric(
-                                    horizontal: 16.0, vertical: 8.0),
-                                child: Text(widget.products[i].name,
-                                    style: TextStyle(
-                                        color: Colors.black,
-                                        fontSize: 20.0,
-                                        fontFamily: "SF-Pro-Text-Regular")),
-                              ),
-                              SizedBox(
-                                height: 10.0,
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.only(
-                                    left: 12.0, bottom: 12.0),
-                                child: Container(
+                  color: Colors.white,
+                  child: Container(
+                    decoration: BoxDecoration(color: Colors.white, boxShadow: [
+                      BoxShadow(
+                          color: Colors.black12,
+                          offset: Offset(3.0, 6.0),
+                          blurRadius: 10.0)
+                    ]),
+                    child: AspectRatio(
+                      aspectRatio: cardAspectRatio,
+                      child: Column(
+                        // fit: StackFit.expand,
+                        children: <Widget>[
+                          ShaderMask(
+                            shaderCallback: (rect) {
+                              return LinearGradient(
+                                begin: Alignment(0.0, 0.6),
+                                end: Alignment.bottomCenter,
+                                colors: [Colors.white, Colors.transparent],
+                              ).createShader(
+                                  Rect.fromLTRB(0, 0, rect.width, rect.height));
+                            },
+                            blendMode: BlendMode.dstATop,
+                            child: Image.asset(
+                              '${widget.products[i].img[0]}',
+                                fit: BoxFit.fitWidth),
+                          ),
+                          Align(
+                            alignment: Alignment.bottomLeft,
+                            child: Column(
+                              mainAxisSize: MainAxisSize.min,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: <Widget>[
+                                Padding(
                                   padding: EdgeInsets.symmetric(
-                                      horizontal: 22.0, vertical: 6.0),
-                                  decoration: BoxDecoration(
-                                      color: Colors.blueAccent,
-                                      borderRadius:
-                                          BorderRadius.circular(20.0)),
-                                  child: Text("23445",
-                                    //"${widget.products[i].}",
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 16
+                                      horizontal: 16.0, vertical: 8.0),
+                                  child: Text(widget.products[i].name,
+                                      style: TextStyle(
+                                          color: Colors.black,
+                                          fontSize: 20.0,
+                                          fontFamily: "SF-Pro-Text-Regular")),
+                                ),
+                                SizedBox(
+                                  height: 10.0,
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.only(
+                                      left: 12.0, bottom: 12.0),
+                                  child: Container(
+                                    padding: EdgeInsets.symmetric(
+                                        horizontal: 22.0, vertical: 6.0),
+                                    decoration: BoxDecoration(
+                                        color: Colors.blueAccent,
+                                        borderRadius:
+                                            BorderRadius.circular(20.0)),
+                                    child: Text("23445",
+                                      //"${widget.products[i].}",
+                                      style: TextStyle(
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 16
+                                      ),
                                     ),
                                   ),
-                                ),
-                              )
-                            ],
-                          ),
-                        )
-                      ],
+                                )
+                              ],
+                            ),
+                          )
+                        ],
+                      ),
                     ),
                   ),
                 ),

@@ -15,7 +15,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
      double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width*1;
     return Container(
-        height: height,
+      //  height: height,
         width: width,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,

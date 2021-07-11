@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:modelcars/Screens/Authentication/ForgotPassword/forgotPassword.dart';
 import 'package:modelcars/Screens/Authentication/signup.dart';
+import 'package:modelcars/Screens/HomePage/home.dart';
 
 
 class LoginScreen extends StatefulWidget {
@@ -214,7 +215,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             Navigator.push(
                                       context,
                                       MaterialPageRoute(
-                                          builder: (context) => ForgotPassword()));
+                                          builder: (context) => Home()));
                         },
                         child: Container(
                           width: width * 0.4,
@@ -224,7 +225,27 @@ class _LoginScreenState extends State<LoginScreen> {
                   )
                 ],
               ),
-            )
+            ),
+           Row(
+             mainAxisAlignment: MainAxisAlignment.center,
+             children: [
+                Text("Don't have an account? ",style: TextStyle(color: Colors.grey,fontWeight: FontWeight.w700),),
+                  GestureDetector(
+                         
+              child: Container(
+                padding: const EdgeInsets.only(right: 0.0, top: 0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    Text('Sign UP!',
+                        style: TextStyle(
+                            color: Colors.blue[700], fontWeight: FontWeight.w600)),
+                  ],
+                ),
+              ),
+            ),
+             ],
+           )
           ],
         ),
       ),
