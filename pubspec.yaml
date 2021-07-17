@@ -45,6 +45,9 @@ dependencies:
   url_launcher: ^6.0.9
   flutter_launcher_icons: ^0.9.0
 
+  flutter_card_swipper: ^0.4.0
+  
+
   
 
 

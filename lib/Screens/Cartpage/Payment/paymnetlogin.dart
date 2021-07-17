@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:modelcars/Screens/Authentication/ForgotPassword/forgotPassword.dart';
 import 'package:modelcars/Screens/Authentication/signup.dart';
-import 'package:modelcars/Screens/Cartpage/Payment/guestLogin.dart';
+
 import 'package:modelcars/Screens/Cartpage/Payment/ordersummary.dart';
 
 class PaymentLogin extends StatefulWidget {
@@ -32,14 +32,14 @@ class _PaymentLoginState extends State<PaymentLogin> {
     width = MediaQuery.of(context).size.width;
     return SingleChildScrollView(
           child: Container(
-          height: height,
+        //  height: height,
           width: width,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               design(),
               SizedBox(
-                height: height * 0.05,
+                height: height * 0.03,
               ),
               index == 0
                   ? Container(
@@ -47,7 +47,7 @@ class _PaymentLoginState extends State<PaymentLogin> {
                         children: [
                           form(),
                            SizedBox(
-                height: height * 0.05,
+                height: height * 0.03,
               ),
                           guest(),
                         ],
@@ -75,6 +75,7 @@ class _PaymentLoginState extends State<PaymentLogin> {
           //   ),
           // ),
           Row(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Padding(
                 padding: const EdgeInsets.all(8.0),

@@ -69,6 +69,7 @@ class _CartPageState extends State<CartPage> {
         floatingActionButton: Container(
           width: MediaQuery.of(context).size.width * 0.9,
           child: FloatingActionButton.extended(
+            
             elevation: 0,
             onPressed: () {
             
@@ -108,7 +109,7 @@ class _CartPageState extends State<CartPage> {
                     color: Colors.black,
                   ),
                   onPressed: () {
-                    setState(() {});
+                   Navigator.pop(context);
                   },
                 ),
                 Container(
@@ -173,7 +174,7 @@ class _CartPageState extends State<CartPage> {
             ),
           ),
           Container(
-            height: MediaQuery.of(context).size.height * 0.2,
+           // height: MediaQuery.of(context).size.height * 0.2,
             width: MediaQuery.of(context).size.width,
             decoration: BoxDecoration(
                 border: Border.all(color: Colors.black, width: 0.1),

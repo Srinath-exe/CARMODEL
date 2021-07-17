@@ -4,6 +4,7 @@ import 'package:modelcars/Screens/Authentication/ForgotPassword/NewPassword.dart
 
 import 'package:modelcars/Screens/HomePage/home.dart';
 
+
 class ForgotPassword extends StatefulWidget {
   @override
   ForgotPasswordState createState() => ForgotPasswordState();
@@ -216,7 +217,7 @@ class ForgotPasswordState extends State<ForgotPassword> {
                                                                         NewPassword()));
                                                       });
                                                     })
-
+                                              
                                                 //  OutlineButton(
                                                 //     highlightedBorderColor:
                                                 //         Colors.black,
@@ -245,6 +246,8 @@ class ForgotPasswordState extends State<ForgotPassword> {
 
                                                 ),
                                           ),
+                                
+                                          
                                         ]))
                               ]))
                         ])

@@ -212,7 +212,7 @@ class _ShippingDetailsState extends State<ShippingDetails> {
     return Padding(
       padding: const EdgeInsets.all(4.0),
       child: Material(
-        elevation: 10,
+        elevation: 5,
         shadowColor: Colors.grey[200],
         color: Colors.white,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),

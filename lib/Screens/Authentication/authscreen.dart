@@ -105,7 +105,21 @@ class _AuthScreenState extends State<AuthScreen> {
                   ],
                 ),
               ),
-              _authType == AuthType.login ? LoginScreen() : SignUpScreen()
+              _authType == AuthType.login ? LoginScreen(
+                signup: (){
+                  setState(() {
+                    
+                    _authType = AuthType.signup;
+                  });
+                },
+              ) : SignUpScreen(
+                login: (){
+                  setState(() {
+                    
+                    _authType = AuthType.login;
+                  });
+                }, 
+              )
             ],
           ),
         ),

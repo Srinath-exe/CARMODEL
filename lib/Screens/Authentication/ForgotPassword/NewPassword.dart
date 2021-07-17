@@ -2,6 +2,7 @@ import 'package:clay_containers/clay_containers.dart';
 import 'package:flutter/material.dart';
 import 'package:modelcars/Screens/HomePage/home.dart';
 
+
 class NewPassword extends StatefulWidget {
   @override
   _NewPasswordState createState() => _NewPasswordState();
@@ -114,7 +115,6 @@ class _NewPasswordState extends State<NewPassword> {
                             padding:
                                 const EdgeInsets.symmetric(horizontal: 15.0),
                             child: Material(
-                              
                               elevation: 2,
                               shadowColor: Colors.grey[200],
                               color: Colors.white,
@@ -125,7 +125,7 @@ class _NewPasswordState extends State<NewPassword> {
                                 alignment: Alignment.center,
                                 margin: EdgeInsets.symmetric(horizontal: 10),
                                 child: TextFormField(
-                                 obscureText: _passwordVisible,
+                                  obscureText: _passwordVisible,
                                   textAlign: TextAlign.left,
                                   enabled: true,
                                   validator: (value) {
@@ -162,15 +162,13 @@ class _NewPasswordState extends State<NewPassword> {
                                         _passwordVisible
                                             ? Icons.visibility
                                             : Icons.visibility_off,
-                                        color:
-                                            Colors.grey,
+                                        color: Colors.grey,
                                         size: 20,
                                       ),
                                       onPressed: () {
                                         // Update the state i.e. toogle the state of passwordVisible variable
                                         setState(() {
-                                          _passwordVisible=
-                                              !_passwordVisible;
+                                          _passwordVisible = !_passwordVisible;
                                         });
                                       },
                                     ),
@@ -205,8 +203,7 @@ class _NewPasswordState extends State<NewPassword> {
                           Padding(
                             padding:
                                 const EdgeInsets.symmetric(horizontal: 15.0),
-                            child:  Material(
-                              
+                            child: Material(
                               elevation: 2,
                               shadowColor: Colors.grey[200],
                               color: Colors.white,
@@ -217,7 +214,6 @@ class _NewPasswordState extends State<NewPassword> {
                                 alignment: Alignment.center,
                                 margin: EdgeInsets.symmetric(horizontal: 10),
                                 child: TextFormField(
-                                  
                                   textAlign: TextAlign.left,
                                   enabled: true,
                                   validator: (value) {
@@ -229,7 +225,7 @@ class _NewPasswordState extends State<NewPassword> {
                                   style: TextStyle(
                                     fontSize: 16,
                                   ),
-                                    obscureText: _passwordVisible1,
+                                  obscureText: _passwordVisible1,
                                   decoration: InputDecoration(
                                     border: InputBorder.none,
                                     contentPadding: EdgeInsets.symmetric(
@@ -255,14 +251,13 @@ class _NewPasswordState extends State<NewPassword> {
                                         _passwordVisible
                                             ? Icons.visibility
                                             : Icons.visibility_off,
-                                        color:
-                                            Colors.grey,
+                                        color: Colors.grey,
                                         size: 20,
                                       ),
                                       onPressed: () {
                                         // Update the state i.e. toogle the state of passwordVisible variable
                                         setState(() {
-                                          _passwordVisible1=
+                                          _passwordVisible1 =
                                               !_passwordVisible1;
                                         });
                                       },
@@ -276,7 +271,7 @@ class _NewPasswordState extends State<NewPassword> {
                                 ),
                               ),
                             ),
-                           ),
+                          ),
                           Padding(
                             padding: const EdgeInsets.symmetric(
                                 horizontal: 18.0, vertical: 8),
@@ -298,6 +293,7 @@ class _NewPasswordState extends State<NewPassword> {
                     SizedBox(
                       height: MediaQuery.of(context).size.height * 0.03,
                     ),
+                    
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Material(

@@ -12,9 +12,15 @@ import 'package:modelcars/widgets/productCard.dart';
 import 'package:modelcars/widgets/productImage.dart';
 import 'package:photo_view/photo_view.dart';
 
+
+
+
+import 'package:modelcars/Models/tempPrdModel.dart';
+
 List<Product> products = [
   Product(
       name: "Fiat 131 Panorama - Alitalia",
+      price: 28800,
       img: [
         "assets/images/image_01.jpg",
         "assets/images/image_02.jpg",
@@ -25,18 +31,21 @@ List<Product> products = [
       details:
           "Named as 'GT' or Grand Touring car, the Ford made GT 40 were produced in the UK and was based on the British made Lola MK6 model with inputs from John Wyer Automotive Engineering, Shelby and a gearbox supplier called Kar-Kraft Powered by Ford made 289 cubic inch V8 engines, about 100 cars rolled out as Ford GT 40 in Mark I, II and Mark III variants. The reason why it was called 40 was because of the height of her windshield which was 40 inches.On 15th June, 1969 at the Circuit de la Sarthe during Le Mans, a Ford GT40 MK I entered by J. W. Automotive Engineering Ltd. and driven by Belgian Jacky Ickx and British Jack Oliver came first after doing 372 laps maintaining an average speed of 208 km/hr"),
   Product(
-      name: "name",
-      img: ["assets/images/image_02.jpg"],
+      name: "Mahindra M5 Electro - Formula B - d'Am",
+       price: 6999,
+      img: ["assets/images/image_08.jpg"],
       details:
           "Named as 'GT' or Grand Touring car, the Ford made GT 40 were produced in the UK and was based on the British made Lola MK6 model with inputs from John Wyer Automotive Engineering, Shelby and a gearbox supplier called Kar-Kraft Powered by Ford made 289 cubic inch V8 engines, about 100 cars rolled out as Ford GT 40 in Mark I, II and Mark III variants. The reason why it was called 40 was because of the height of her windshield which was 40 inches.On 15th June, 1969 at the Circuit de la Sarthe during Le Mans, a Ford GT40 MK I entered by J. W. Automotive Engineering Ltd. and driven by Belgian Jacky Ickx and British Jack Oliver came first after doing 372 laps maintaining an average speed of 208 km/hr"),
   Product(
-      name: "lexus",
-      img: ["assets/images/image_02.jpg"],
+      name: "lamborghini lm002",
+       price: 12999,
+      img: ["assets/images/image_09.jpg"],
       details:
           "Named as 'GT' or Grand Touring car, the Ford made GT 40 were produced in the UK and was based on the British made Lola MK6 model with inputs from John Wyer Automotive Engineering, Shelby and a gearbox supplier called Kar-Kraft Powered by Ford made 289 cubic inch V8 engines, about 100 cars rolled out as Ford GT 40 in Mark I, II and Mark III variants. The reason why it was called 40 was because of the height of her windshield which was 40 inches.On 15th June, 1969 at the Circuit de la Sarthe during Le Mans, a Ford GT40 MK I entered by J. W. Automotive Engineering Ltd. and driven by Belgian Jacky Ickx and British Jack Oliver came first after doing 372 laps maintaining an average speed of 208 km/hr"),
   Product(
-      name: "Ford GT40 MK1 -Le Mans-Winner",
-      img: ["assets/images/image_01.jpg"],
+      name: "koenigsegg regera",
+       price: 20860,
+      img: ["assets/images/image_10.jpg"],
       details:
           "Named as 'GT' or Grand Touring car, the Ford made GT 40 were produced in the UK and was based on the British made Lola MK6 model with inputs from John Wyer Automotive Engineering, Shelby and a gearbox supplier called Kar-Kraft Powered by Ford made 289 cubic inch V8 engines, about 100 cars rolled out as Ford GT 40 in Mark I, II and Mark III variants. The reason why it was called 40 was because of the height of her windshield which was 40 inches.On 15th June, 1969 at the Circuit de la Sarthe during Le Mans, a Ford GT40 MK I entered by J. W. Automotive Engineering Ltd. and driven by Belgian Jacky Ickx and British Jack Oliver came first after doing 372 laps maintaining an average speed of 208 km/hr")
 ];
@@ -278,7 +287,6 @@ class _ProductPageState extends State<ProductPage> {
 
   Widget prd_img() {
     return Container(
-      height: MediaQuery.of(context).size.height * 0.37,
       child: Column(
         children: [
           CarouselSlider(
@@ -288,7 +296,7 @@ class _ProductPageState extends State<ProductPage> {
               enlargeCenterPage: false,
               autoPlayCurve: Curves.fastOutSlowIn,
               pageSnapping: true,
-              height: MediaQuery.of(context).size.height * 0.34,
+              height: MediaQuery.of(context).size.height * 0.36,
               onPageChanged: (index, reason) {
                 setState(
                   () {
@@ -308,7 +316,10 @@ class _ProductPageState extends State<ProductPage> {
                                   ProductImage(index: _currentIndex)));
                     });
                   },
-                  child: Container(child: img(e)));
+                  child: Container(
+                
+                    width: MediaQuery.of(context).size.width,
+                    child: img(e)));
             }).toList(),
           ),
           Row(
@@ -424,6 +435,7 @@ class _ProductPageState extends State<ProductPage> {
               ),
             ],
           ),
+      
         ]),
       ),
     );

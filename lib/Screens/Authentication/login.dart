@@ -6,7 +6,8 @@ import 'package:modelcars/Screens/HomePage/home.dart';
 
 
 class LoginScreen extends StatefulWidget {
-  const LoginScreen({Key? key}) : super(key: key);
+  Function signup;
+  LoginScreen({Key? key,required this.signup}) : super(key: key);
 
   @override
   _LoginScreenState createState() => _LoginScreenState();
@@ -15,6 +16,7 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   late double height;
   late double width;
+  
   FocusNode emailFocus = new FocusNode();
   FocusNode passwordFocus = new FocusNode();
 
@@ -231,6 +233,9 @@ class _LoginScreenState extends State<LoginScreen> {
              children: [
                 Text("Don't have an account? ",style: TextStyle(color: Colors.grey,fontWeight: FontWeight.w700),),
                   GestureDetector(
+                    onTap: (){
+                      widget.signup();
+                    },
                          
               child: Container(
                 padding: const EdgeInsets.only(right: 0.0, top: 0),

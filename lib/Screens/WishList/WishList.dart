@@ -8,7 +8,7 @@ import 'package:modelcars/Screens/ProductViewpage/ProductPage.dart';
 import 'package:modelcars/widgets/WishList_card.dart';
 
 class WishList extends StatefulWidget {
-  const WishList({Key? key}) : super(key: key);
+  WishList({Key? key}) : super(key: key);
 
   @override
   _WishListState createState() => _WishListState();

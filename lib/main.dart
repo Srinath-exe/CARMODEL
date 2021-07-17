@@ -24,6 +24,6 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.grey,
         ),
-        home: ProductPage());
+        home: AuthScreen());
   }
 }

@@ -1,10 +1,11 @@
 import 'dart:math';
 
+import 'package:favorite_button/favorite_button.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:modelcars/Models/tempPrdModel.dart';
 import 'package:modelcars/Screens/ProductViewpage/ProductPage.dart';
-
 
 class CardScrollWidget extends StatefulWidget {
   List<Product> products;
@@ -17,7 +18,7 @@ class CardScrollWidget extends StatefulWidget {
 
 class _CardScrollWidgetState extends State<CardScrollWidget> {
   var padding = 20.0;
-
+  bool add = false;
   var verticalInset = 20.0;
   var cardAspectRatio;
   var widgetAspectRatio;
@@ -55,7 +56,12 @@ class _CardScrollWidgetState extends State<CardScrollWidget> {
         var horizontalInset = primaryCardLeft / 2;
 
         List<Widget> cardList = [];
-        List<Color> colors = [Colors.black, Colors.blue, Colors.pinkAccent,Colors.pinkAccent];
+        List<Color> colors = [
+          Colors.black,
+          Colors.blue,
+          Colors.pinkAccent,
+          Colors.pinkAccent
+        ];
 
         for (var i = 0; i < widget.products.length; i++) {
           var delta = i - currentPage;
@@ -72,17 +78,16 @@ class _CardScrollWidgetState extends State<CardScrollWidget> {
             bottom: padding + verticalInset * max(-delta, 0.0),
             start: start,
             textDirection: TextDirection.rtl,
-            child: GestureDetector(
-              onTap: (){
-                setState(() {
-                     Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => ProductPage()));
-                });
-              },
-                          child: ClipRRect(
-                borderRadius: BorderRadius.circular(14.0),
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(14.0),
+              child: GestureDetector(
+                onTap: () {
+                  controller.nextPage(
+                      duration: Duration(
+                        seconds: 5,
+                      ),
+                      curve: Curves.bounceIn);
+                },
                 child: Container(
                   color: Colors.white,
                   child: Container(
@@ -107,8 +112,7 @@ class _CardScrollWidgetState extends State<CardScrollWidget> {
                                   Rect.fromLTRB(0, 0, rect.width, rect.height));
                             },
                             blendMode: BlendMode.dstATop,
-                            child: Image.asset(
-                              '${widget.products[i].img[0]}',
+                            child: Image.asset('${widget.products[i].img[0]}',
                                 fit: BoxFit.fitWidth),
                           ),
                           Align(
@@ -126,29 +130,154 @@ class _CardScrollWidgetState extends State<CardScrollWidget> {
                                           fontSize: 20.0,
                                           fontFamily: "SF-Pro-Text-Regular")),
                                 ),
-                                SizedBox(
-                                  height: 10.0,
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.only(
-                                      left: 12.0, bottom: 12.0),
-                                  child: Container(
-                                    padding: EdgeInsets.symmetric(
-                                        horizontal: 22.0, vertical: 6.0),
-                                    decoration: BoxDecoration(
-                                        color: Colors.blueAccent,
-                                        borderRadius:
-                                            BorderRadius.circular(20.0)),
-                                    child: Text("23445",
-                                      //"${widget.products[i].}",
-                                      style: TextStyle(
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 16
-                                      ),
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Column(
+                                      children: [
+                                        SizedBox(
+                                          height: 10.0,
+                                        ),
+                                        Padding(
+                                          padding: const EdgeInsets.only(
+                                              left: 12.0, bottom: 12.0),
+                                          child: Container(
+                                            padding: EdgeInsets.symmetric(
+                                                horizontal: 22.0,
+                                                vertical: 6.0),
+                                            decoration: BoxDecoration(
+                                                color: Colors.blueAccent,
+                                                borderRadius:
+                                                    BorderRadius.circular(
+                                                        20.0)),
+                                            child: Text(
+                                              "${widget.products[i].price}",
+                                              style: TextStyle(
+                                                  color: Colors.white,
+                                                  fontWeight: FontWeight.bold,
+                                                  fontSize: 16),
+                                            ),
+                                          ),
+                                        ),
+                                        Padding(
+                                          padding: const EdgeInsets.symmetric(
+                                              horizontal: 8.0),
+                                          child: OutlinedButton(
+                                              child: Row(
+                                                children: [
+                                                  Text(
+                                                    'See More',
+                                                    style: TextStyle(
+                                                        fontWeight:
+                                                            FontWeight.w600,
+                                                        fontSize: 12),
+                                                  ),
+                                                  Icon(
+                                                    Icons.arrow_forward_ios,
+                                                    size: 12,
+                                                  )
+                                                ],
+                                              ),
+                                              style: OutlinedButton.styleFrom(
+                                                primary: Colors.black,
+                                                backgroundColor: Colors.white,
+                                                shape:
+                                                    const RoundedRectangleBorder(
+                                                        borderRadius:
+                                                            BorderRadius.all(
+                                                                Radius.circular(
+                                                                    25))),
+                                              ),
+                                              onPressed: () {
+                                                setState(() {
+                                                  
+                                                  Navigator.push(
+                                                      context,
+                                                      MaterialPageRoute(
+                                                          builder: (context) =>
+                                                              ProductPage()));
+                                                });
+                                              }),
+                                        )
+                                      ],
                                     ),
-                                  ),
-                                )
+                                    Column(
+                                      children: [
+                                        FavoriteButton(
+                                          iconSize: 40,
+                                          valueChanged: (_isFavorite) {
+                                            _isFavorite = !_isFavorite;
+                                            _isFavorite == false
+                                                ? Fluttertoast.showToast(
+                                                    msg: "Added to Wishlist",
+                                                    toastLength:
+                                                        Toast.LENGTH_SHORT,
+                                                    gravity:
+                                                        ToastGravity.BOTTOM,
+                                                    timeInSecForIosWeb: 1,
+                                                    backgroundColor:
+                                                        Colors.grey[100],
+                                                    textColor: Colors.white,
+                                                    fontSize: 12.0)
+                                                : Fluttertoast.showToast(
+                                                    msg:
+                                                        "Removed from Wishlist",
+                                                    toastLength:
+                                                        Toast.LENGTH_SHORT,
+                                                    gravity:
+                                                        ToastGravity.BOTTOM,
+                                                    timeInSecForIosWeb: 1,
+                                                    backgroundColor:
+                                                        Colors.grey[100],
+                                                    textColor: Colors.white,
+                                                    fontSize: 12.0);
+                                          },
+                                        ),
+                                        IconButton(
+                                          icon: add
+                                              ? const Icon(
+                                                  Icons.add_shopping_cart_sharp,
+                                                  color: Colors.orange,
+                                                )
+                                              : const Icon(
+                                                  Icons.add_shopping_cart_sharp,
+                                                  color: Colors.black,
+                                                ),
+                                          onPressed: () {
+                                            setState(() {
+                                              add = !add;
+
+                                              add == true
+                                                  ? Fluttertoast.showToast(
+                                                      msg: "Added to Cart",
+                                                      toastLength:
+                                                          Toast.LENGTH_SHORT,
+                                                      gravity:
+                                                          ToastGravity.BOTTOM,
+                                                      timeInSecForIosWeb: 1,
+                                                      backgroundColor:
+                                                          Colors.grey[100],
+                                                      textColor: Colors.white,
+                                                      fontSize: 12.0)
+                                                  : Fluttertoast.showToast(
+                                                      msg: "Removed from Cart",
+                                                      toastLength:
+                                                          Toast.LENGTH_SHORT,
+                                                      gravity:
+                                                          ToastGravity.BOTTOM,
+                                                      timeInSecForIosWeb: 1,
+                                                      backgroundColor:
+                                                          Colors.grey[100],
+                                                      textColor: Colors.white,
+                                                      fontSize: 12.0);
+                                            });
+                                          },
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+                                ),
                               ],
                             ),
                           )
@@ -163,25 +292,29 @@ class _CardScrollWidgetState extends State<CardScrollWidget> {
           cardList.add(cardItem);
         }
         return Container(
+          height: 50,
           child: Stack(
             children: <Widget>[
               Stack(
                 clipBehavior: Clip.hardEdge,
                 children: cardList,
               ),
-              Positioned.fill(
-                child: PageView.builder(
-                  itemCount: widget.products.length,
-                  controller: controller,
-                  reverse: true,
-                  itemBuilder: (context, index) {
-                    return Container(
-                      height: 100,
-                      width: 100,
-                    );
-                  },
+              IgnorePointer(
+                child: Positioned.fill(
+                  child: PageView.builder(
+                    itemCount: widget.products.length,
+                    controller: controller,
+                    reverse: true,
+                    itemBuilder: (context, index) {
+                      return Container(
+                        color: index % 2 == 0
+                            ? Colors.red
+                            : Colors.red.withOpacity(0.5),
+                      );
+                    },
+                  ),
                 ),
-              )
+              ),
             ],
           ),
         );

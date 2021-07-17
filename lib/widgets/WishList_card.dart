@@ -41,7 +41,7 @@ class _WishListCardState extends State<WishListCard> {
 
 
             child: Container(
-              height: MediaQuery.of(context).size.height * 0.17,
+             // height: MediaQuery.of(context).size.height * 0.17,
               width: MediaQuery.of(context).size.width,
               decoration: BoxDecoration(
                   border: Border.all(color: Colors.black, width: 0.01),
@@ -54,10 +54,10 @@ class _WishListCardState extends State<WishListCard> {
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       Padding(
-                        padding: const EdgeInsets.symmetric(horizontal:12.0),
+                        padding: const EdgeInsets.symmetric(horizontal:12.0,vertical: 10),
                         child: Container(
                           height: MediaQuery.of(context).size.height * 0.14,
-                          width: MediaQuery.of(context).size.width * 0.4,
+                          width: MediaQuery.of(context).size.width * 0.38,
                           decoration: BoxDecoration(
                               borderRadius: BorderRadius.all(Radius.circular(10)),
                               color: Colors.white),
@@ -69,7 +69,7 @@ class _WishListCardState extends State<WishListCard> {
                       // ),
                       Container(
                         color: Colors.transparent,
-                        height: MediaQuery.of(context).size.height * 0.14,
+                       // height: MediaQuery.of(context).size.height * 0.14,
                         width: MediaQuery.of(context).size.width * 0.49,
                         child: Padding(
                           padding: const EdgeInsets.all(5.0),
@@ -118,7 +118,7 @@ class _WishListCardState extends State<WishListCard> {
                                   Container(
                                     height:
                                         MediaQuery.of(context).size.height * 0.035,
-                                    width: MediaQuery.of(context).size.width * 0.26,
+                                   // width: MediaQuery.of(context).size.width * 0.26,
                                     child: ElevatedButton(
                                         style: ElevatedButton.styleFrom(
                                           primary: Colors.grey[800], // background
@@ -141,6 +141,7 @@ class _WishListCardState extends State<WishListCard> {
                                           });
                                         }),
                                   ),
+                                  
                                   // SizedBox(
                                   //   width: MediaQuery.of(context).size.width * 0.02,
                                   // ),

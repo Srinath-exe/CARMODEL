@@ -27,7 +27,7 @@ class _ProductCardState extends State<ProductCard> {
               color: Colors.grey[200],
               borderRadius: BorderRadius.all(Radius.circular(10))),
           width: MediaQuery.of(context).size.width * 0.4,
-          height: MediaQuery.of(context).size.height * 0.22,
+         // height: MediaQuery.of(context).size.height * 0.22,
           child: Column(
             children: [
               Container(
@@ -64,13 +64,14 @@ class _ProductCardState extends State<ProductCard> {
                 ],
               )),
               Padding(
-                padding: const EdgeInsets.all(5.0),
+                padding: const EdgeInsets.symmetric(horizontal:7.0,vertical: 2),
                 child: Column(
                   children: [
                     Row(
                       children: [
                         Container(
-                          width: MediaQuery.of(context).size.width * 0.37,
+                        
+                          width: MediaQuery.of(context).size.width * 0.36,
                           child: Text(
                             widget.name,
                             style: TextStyle(

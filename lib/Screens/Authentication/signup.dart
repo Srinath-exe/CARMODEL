@@ -2,20 +2,20 @@ import 'package:flutter/material.dart';
 import 'package:modelcars/Screens/Authentication/ForgotPassword/forgotPassword.dart';
 
 class SignUpScreen extends StatefulWidget {
-  const SignUpScreen({Key? key}) : super(key: key);
+    Function login;
+  SignUpScreen({Key? key,required this.login}) : super(key: key);
 
   @override
   _SignUpScreenState createState() => _SignUpScreenState();
 }
 
 class _SignUpScreenState extends State<SignUpScreen> {
- 
   @override
   Widget build(BuildContext context) {
-     double height = MediaQuery.of(context).size.height;
-    double width = MediaQuery.of(context).size.width*1;
+    double height = MediaQuery.of(context).size.height;
+    double width = MediaQuery.of(context).size.width * 1;
     return Container(
-      //  height: height,
+        //  height: height,
         width: width,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
@@ -27,11 +27,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
             form()
           ],
         ));
-  
   }
+
   Widget design() {
     return Container(
-         height: MediaQuery.of(context).size.height * 0.3,
+      height: MediaQuery.of(context).size.height * 0.3,
       child: Stack(
         children: [
           //   Positioned(
@@ -55,7 +55,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
               ),
             ],
           ),
-        
         ],
       ),
     );
@@ -63,14 +62,13 @@ class _SignUpScreenState extends State<SignUpScreen> {
 
   Widget form() {
     return Container(
-      width: MediaQuery.of(context).size.width ,
+      width: MediaQuery.of(context).size.width,
       color: Colors.transparent,
       child: Form(
         child: Column(
           children: [
-             Material(
+            Material(
               elevation: 10,
-             
               color: Colors.white,
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(10)),
@@ -79,15 +77,12 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 alignment: Alignment.center,
                 margin: EdgeInsets.symmetric(horizontal: 40),
                 child: TextFormField(
-                 
                   textAlign: TextAlign.left,
                   enabled: true,
                   style: TextStyle(
                     fontSize: 16,
                   ),
-                  onTap: () {
-                 
-                  },
+                  onTap: () {},
                   decoration: InputDecoration(
                     border: InputBorder.none,
                     contentPadding:
@@ -114,7 +109,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
             ),
             Material(
               elevation: 10,
-             
               color: Colors.white,
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(10)),
@@ -123,15 +117,12 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 alignment: Alignment.center,
                 margin: EdgeInsets.symmetric(horizontal: 40),
                 child: TextFormField(
-                 
                   textAlign: TextAlign.left,
                   enabled: true,
                   style: TextStyle(
                     fontSize: 16,
                   ),
-                  onTap: () {
-                 
-                  },
+                  onTap: () {},
                   decoration: InputDecoration(
                     border: InputBorder.none,
                     contentPadding:
@@ -153,14 +144,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 ),
               ),
             ),
-            
             SizedBox(
               height: 15,
             ),
             Material(
               elevation: 10,
-              
-                
               color: Colors.white,
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(10)),
@@ -169,7 +157,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 alignment: Alignment.center,
                 margin: EdgeInsets.symmetric(horizontal: 40),
                 child: TextFormField(
-                  
                   textAlign: TextAlign.left,
                   enabled: true,
                   style: TextStyle(
@@ -197,9 +184,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 ),
               ),
             ),
-            
             Container(
-              width: MediaQuery.of(context).size.width*0.7,
+              width: MediaQuery.of(context).size.width * 0.7,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -223,24 +209,52 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           ),
                         ),
                         onPressed: () {
-                            Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                          builder: (context) => ForgotPassword()));
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => ForgotPassword()));
                         },
                         child: Container(
-                          width: MediaQuery.of(context).size.width*0.4,
+                          width: MediaQuery.of(context).size.width * 0.4,
                           padding: const EdgeInsets.all(12.0),
-                          child: Center(child: Text("Login",style: TextStyle(color: Colors.white,fontWeight: FontWeight.w700),)),
+                          child: Center(
+                              child: Text(
+                            "Sign Up",
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.w700),
+                          )),
                         )),
                   )
                 ],
               ),
-            )
+            ),
+               Row(
+             mainAxisAlignment: MainAxisAlignment.center,
+             children: [
+                Text("Don't have an account? ",style: TextStyle(color: Colors.grey,fontWeight: FontWeight.w700),),
+                  GestureDetector(
+                    onTap: (){
+                      widget.login();
+                    },
+                         
+              child: Container(
+                padding: const EdgeInsets.only(right: 0.0, top: 0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    Text('Login!',
+                        style: TextStyle(
+                            color: Colors.blue[700], fontWeight: FontWeight.w600)),
+                  ],
+                ),
+              ),
+            ),
+             ],
+           )
           ],
         ),
       ),
     );
   }
-
 }

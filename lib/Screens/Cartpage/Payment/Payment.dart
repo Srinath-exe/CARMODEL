@@ -133,7 +133,7 @@ class _PaymentPageState extends State<PaymentPage> {
             ),
           ),
           Container(
-            height: MediaQuery.of(context).size.height * 0.2,
+            height: MediaQuery.of(context).size.height * 0.23,
             width: MediaQuery.of(context).size.width,
             decoration: BoxDecoration(
                 border: Border.all(color: Colors.black, width: 0.1),

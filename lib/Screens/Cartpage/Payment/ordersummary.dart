@@ -91,7 +91,7 @@ class _OrderSummaryState extends State<OrderSummary> {
         decoration: BoxDecoration(
             //color: Colors.grey[200],
             borderRadius: BorderRadius.circular(10)),
-        height: MediaQuery.of(context).size.height * 0.04,
+        //height: MediaQuery.of(context).size.height * 0.05,
         //  width: MediaQuery.of(context).size.width * 0.2,
         // height: MediaQuery.of(context).size.height * 0.05,
         child: Column(
@@ -222,10 +222,10 @@ class _OrderSummaryState extends State<OrderSummary> {
       child: Column(
         children: [
           Container(
-            height: MediaQuery.of(context).size.height * 0.05,
+              height: MediaQuery.of(context).size.height * 0.05,
             width: MediaQuery.of(context).size.width,
             decoration: BoxDecoration(
-                border: Border.all(color: Colors.black, width: 0.1),
+                border: Border.all(color: Colors.grey, width: 1),
                 borderRadius: BorderRadius.all(Radius.circular(0)),
                 color: Colors.white),
             child: Row(
@@ -246,7 +246,7 @@ class _OrderSummaryState extends State<OrderSummary> {
             ),
           ),
           Container(
-            height: MediaQuery.of(context).size.height * 0.2,
+            height: MediaQuery.of(context).size.height * 0.23,
             width: MediaQuery.of(context).size.width,
             decoration: BoxDecoration(
                 border: Border.all(color: Colors.black, width: 0.1),
@@ -361,6 +361,7 @@ class _OrderSummaryState extends State<OrderSummary> {
               ),
             ),
           ),
+              SizedBox(height: MediaQuery.of(context).size.height * 0.06),
         ],
       ),
     );
@@ -373,14 +374,14 @@ class _OrderSummaryState extends State<OrderSummary> {
         padding: const EdgeInsets.all(8.0),
         child: Column(
           children: [
-            Text(
-              'What would you like to do Next?',
-              style: TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.w600,
-                  color: Colors.black),
-              textScaleFactor: 1,
-            ),
+            // Text(
+            //   'What would you like to do Next?',
+            //   style: TextStyle(
+            //       fontSize: 18,
+            //       fontWeight: FontWeight.w600,
+            //       color: Colors.black),
+            //   textScaleFactor: 1,
+            // ),
           
           ],
         ),

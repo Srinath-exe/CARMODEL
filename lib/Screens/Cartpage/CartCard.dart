@@ -16,7 +16,6 @@ class CartCard extends StatefulWidget {
 }
 
 class _CartCardState extends State<CartCard> {
- 
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -43,11 +42,12 @@ class _CartCardState extends State<CartCard> {
         child: GestureDetector(
           onTap: () {
             setState(() {
-            
+                Navigator.push(
+                  context, MaterialPageRoute(builder: (context) => ProductPage()));
             });
           },
           child: Container(
-            height: MediaQuery.of(context).size.height * 0.2,
+           //height: MediaQuery.of(context).size.height * 0.22,
             width: MediaQuery.of(context).size.width,
             decoration: BoxDecoration(
                 border: Border.all(color: Colors.black, width: 0.1),
@@ -63,7 +63,7 @@ class _CartCardState extends State<CartCard> {
                       padding: const EdgeInsets.all(8.0),
                       child: Container(
                         color: Colors.grey[10],
-                        height: MediaQuery.of(context).size.height * 0.18,
+                      //  height: MediaQuery.of(context).size.height * 0.18,
                         width: MediaQuery.of(context).size.width * 0.51,
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -114,7 +114,7 @@ class _CartCardState extends State<CartCard> {
                                             ),
                                           ],
                                         ),
-                                          SizedBox(
+                                        SizedBox(
                                           height: MediaQuery.of(context)
                                                   .size
                                                   .height *
@@ -138,57 +138,56 @@ class _CartCardState extends State<CartCard> {
                                 ),
                               ],
                             ),
-                         
-                          
-                               Row(
-                                 children: [
-                                   SizedBox(
- width: MediaQuery.of(context).size.width*0.02,
-                                   ),
-                                   Container(
-                                    decoration: BoxDecoration(
-                                        color: Colors.grey[100],
-                                        borderRadius: BorderRadius.circular(10)),
-                                    height:
-                                        MediaQuery.of(context).size.height * 0.048,
-                                    width: MediaQuery.of(context).size.width * 0.21,
-                                    child: Row(
-                                      mainAxisAlignment: MainAxisAlignment.center,
-                                      children: [
-                                        // Text(
-                                        //   '',
-                                        //   style: TextStyle(
-                                        //       fontSize: 15,
-                                        //       fontWeight: FontWeight.w400,
-                                        //       color: Colors.black),
-                                        //   textScaleFactor: 1,
-                                        // ),
-                                       
-                                        Container(
-                                          child: CustomNumberPicker(
-                                            customAddButton: Icon(
-                                              Icons.add,
-                                              size: 17,
-                                            ),
-                                            customMinusButton: Icon(
-                                              Icons.remove,
-                                              size: 17,
-                                            ),
-                                            initialValue: 1,
-                                            maxValue: 5,
-                                            minValue: 1,
-                                            step: 1,
-                                            onValue: (value) {
-                                              print(value.toString());
-                                            },
+                            Row(
+                              children: [
+                                SizedBox(
+                                  width:
+                                      MediaQuery.of(context).size.width * 0.02,
+                                ),
+                                Container(
+                                  decoration: BoxDecoration(
+                                      color: Colors.grey[100],
+                                      borderRadius: BorderRadius.circular(10)),
+                                  height: MediaQuery.of(context).size.height *
+                                      0.055,
+                                  width:
+                                      MediaQuery.of(context).size.width * 0.21,
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      // Text(
+                                      //   '',
+                                      //   style: TextStyle(
+                                      //       fontSize: 15,
+                                      //       fontWeight: FontWeight.w400,
+                                      //       color: Colors.black),
+                                      //   textScaleFactor: 1,
+                                      // ),
+
+                                      Container(
+                                        child: CustomNumberPicker(
+                                          customAddButton: Icon(
+                                            Icons.add,
+                                            size: 17,
                                           ),
+                                          customMinusButton: Icon(
+                                            Icons.remove,
+                                            size: 17,
+                                          ),
+                                          initialValue: 1,
+                                          maxValue: 5,
+                                          minValue: 1,
+                                          step: 1,
+                                          onValue: (value) {
+                                            print(value.toString());
+                                          },
                                         ),
-                                      ],
-                                    
-                              ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ],
                             ),
-                                 ],
-                               ),
                           ],
                         ),
                       ),
@@ -208,7 +207,7 @@ class _CartCardState extends State<CartCard> {
                                   const EdgeInsets.symmetric(horizontal: 12.0),
                               child: Container(
                                 height:
-                                    MediaQuery.of(context).size.height * 0.12,
+                                    MediaQuery.of(context).size.height * 0.13,
                                 width: MediaQuery.of(context).size.width * 0.35,
                                 decoration: BoxDecoration(
                                     // border: Border.all(
@@ -273,5 +272,4 @@ class _CartCardState extends State<CartCard> {
       child: Image.network(img, fit: BoxFit.fill),
     );
   }
-
 }

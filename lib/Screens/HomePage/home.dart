@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:modelcars/Screens/Cartpage/Payment/temp.dart';
+import 'package:modelcars/widgets/HomeDrawer.dart';
+import 'package:modelcars/widgets/card.dart';
 import 'package:modelcars/widgets/cardScroll_widget.dart';
-
 
 import 'data.dart';
 import 'dart:math';
@@ -11,12 +13,13 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
   var currentPage1 = products.length - 1.0;
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-          child: Container(
+      child: Container(
         color: Colors.white,
         child: Container(
           decoration: BoxDecoration(
@@ -30,6 +33,9 @@ class _HomeState extends State<Home> {
                 tileMode: TileMode.clamp),
           ),
           child: Scaffold(
+          
+            key: _scaffoldKey,
+            drawer: HomeDrawer(),
             backgroundColor: Colors.transparent,
             body: SingleChildScrollView(
               child: Column(
@@ -46,7 +52,7 @@ class _HomeState extends State<Home> {
                             color: Colors.white,
                             size: 30.0,
                           ),
-                          onPressed: () {},
+                          onPressed: () => _scaffoldKey.currentState!.openDrawer(),
                         ),
                         IconButton(
                           icon: Icon(
@@ -102,7 +108,10 @@ class _HomeState extends State<Home> {
                       ],
                     ),
                   ),
-                  CardScrollWidget(products: products),
+                 Padding(
+                   padding: const EdgeInsets.all(8.0),
+                   child: HomeCard(products: products,),
+                 ),
                   Padding(
                     padding: EdgeInsets.symmetric(horizontal: 20.0),
                     child: Row(
@@ -121,16 +130,16 @@ class _HomeState extends State<Home> {
                             size: 12.0,
                             color: Colors.white,
                           ),
-                          onPressed: () {
-                            
-                          },
+                          onPressed: () {},
                         )
                       ],
                     ),
                   ),
-                  CardScrollWidget(
-                    products: products,
-                  ),
+                 Padding(
+                   padding: const EdgeInsets.all(8.0),
+                   child: HomeCard(products: products,),
+                 ),
+              
                 ],
               ),
             ),
