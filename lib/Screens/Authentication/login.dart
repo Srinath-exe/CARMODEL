@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:modelcars/Screens/Authentication/ForgotPassword/forgotPassword.dart';
-import 'package:modelcars/Screens/Authentication/signup.dart';
+
 import 'package:modelcars/Screens/HomePage/home.dart';
 
 
@@ -59,6 +59,7 @@ class _LoginScreenState extends State<LoginScreen> {
           //   ),
           // ),
           Row(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Padding(
                 padding: const EdgeInsets.all(8.0),

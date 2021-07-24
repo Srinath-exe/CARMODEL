@@ -1,9 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-import 'package:modelcars/Screens/Authentication/ForgotPassword/NewPassword.dart';
-import 'package:modelcars/Screens/Authentication/ForgotPassword/forgotPassword.dart';
-import 'package:modelcars/Screens/Authentication/login.dart';
+
 
 import 'package:modelcars/Screens/Cartpage/Payment/Payment.dart';
 import 'package:modelcars/Screens/Cartpage/Payment/ShippingDetails.dart';

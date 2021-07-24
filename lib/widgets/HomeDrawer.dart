@@ -1,9 +1,8 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:modelcars/Screens/Authentication/authscreen.dart';
 import 'package:modelcars/Screens/Cartpage/Cart.dart';
-import 'package:modelcars/Screens/HomePage/home.dart';
+import 'package:modelcars/Screens/Category/categoryPage.dart';
+
 import 'package:modelcars/Screens/WishList/WishList.dart';
 
 class HomeDrawer extends StatefulWidget {
@@ -130,6 +129,17 @@ class _HomeDrawerState extends State<HomeDrawer> {
               // ),
               ListTile(
                 onTap: () {
+                   Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => CategoryPage(),
+                      ));
+                },
+                leading: Icon(Icons.dashboard),
+                title: Text('Category'),
+              ),
+              ListTile(
+                onTap: () {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
@@ -138,9 +148,7 @@ class _HomeDrawerState extends State<HomeDrawer> {
                 },
                 leading: Icon(Icons.exit_to_app),
                 title: Text('Log out'),
-
               ),
-              
             ],
           ),
         ),

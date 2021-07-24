@@ -46,6 +46,11 @@ dependencies:
   flutter_launcher_icons: ^0.9.0
 
   flutter_card_swipper: ^0.4.0
+  colorful_safe_area: ^0.3.0
+  flutter_search_bar: ^3.0.0-dev.1
+  anim_search_bar: ^2.0.2
+  filter_list: ^1.0.0
+  simple_speed_dial: ^0.1.3
   
 
   

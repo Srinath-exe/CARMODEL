@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:modelcars/Screens/Cartpage/CartCard.dart';
-import 'package:modelcars/Screens/Cartpage/Payment/Payment.dart';
+
 import 'package:modelcars/Screens/Cartpage/Payment/finalmain.dart';
-import 'package:modelcars/Screens/HomePage/home.dart';
+
 import 'package:modelcars/Screens/WishList/WishList.dart';
 
 class CartPage extends StatefulWidget {

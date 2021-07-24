@@ -2,8 +2,6 @@ import 'package:clay_containers/clay_containers.dart';
 import 'package:flutter/material.dart';
 import 'package:modelcars/Screens/Authentication/ForgotPassword/NewPassword.dart';
 
-import 'package:modelcars/Screens/HomePage/home.dart';
-
 
 class ForgotPassword extends StatefulWidget {
   @override

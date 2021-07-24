@@ -1,4 +1,3 @@
-import 'dart:ffi';
 
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:favorite_button/favorite_button.dart';
@@ -7,15 +6,15 @@ import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:modelcars/Models/tempPrdModel.dart';
 import 'package:modelcars/Screens/Cartpage/Cart.dart';
-import 'package:modelcars/Screens/HomePage/data.dart';
+
 import 'package:modelcars/widgets/productCard.dart';
 import 'package:modelcars/widgets/productImage.dart';
-import 'package:photo_view/photo_view.dart';
 
 
 
 
-import 'package:modelcars/Models/tempPrdModel.dart';
+
+
 
 List<Product> products = [
   Product(
@@ -227,6 +226,7 @@ class _ProductPageState extends State<ProductPage> {
                         ],
                       ),
                     ),
+                    
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [],

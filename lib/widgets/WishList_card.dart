@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
-import 'package:modelcars/Screens/ProductViewpage/ProductPage.dart';
 
 class WishListCard extends StatefulWidget {
   String img;
